@@ -4,5 +4,5 @@ export class Employee {
     apellidos: string;
     direccion: string;
     email: string;
-    fecha_contratacion: any;
+    fecha_contratacion: Date;
 }

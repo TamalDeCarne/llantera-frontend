@@ -13,7 +13,9 @@ export class ApipostService {
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type':'application/json; charset=UTF-8'
+      'Content-Type':'application/json; charset=UTF-8',
+      'Access-Control-Allow-Origin' : '*',
+      'Allow': 'GET, POST, OPTIONS, PUT, DELETE'
     })
   }
   constructor(private http:HttpClient) { }
