@@ -9,11 +9,10 @@
             <p>Email: {{user.empleado.email}}</p>
             <p>Fecha de Contratación: {{user.empleado.fecha_contratacion | date:"MM/dd/yy" }}</p>
         </mat-card-content>
-        <mat-card-footer>
         <mat-card-actions>
-            <button mat-button>Boton</button>
+            <button mat-icon-button style="justify-content: right;" (click)="openModal()"><mat-icon>person_add</mat-icon></button>
+            <button mat-icon-button style="justify-content: right;"><mat-icon>edit</mat-icon></button>
+            <button mat-icon-button style="justify-content: right;" (click)="deleteUser(user)"><mat-icon>person_remove</mat-icon></button>
         </mat-card-actions>
-        </mat-card-footer>
     </mat-card>
-    <button mat-button> <mat-icon></mat-icon></button>
 </div>

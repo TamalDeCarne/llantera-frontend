@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../models/user';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
+import { UserType } from '../models/usertype';
+import { Employee } from '../models/employee';
 
 @Injectable({
   providedIn: 'root'
@@ -13,15 +15,43 @@ export class ApipostService {
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type':'application/json; charset=UTF-8',
-      'Access-Control-Allow-Origin' : '*',
-      'Allow': 'GET, POST, OPTIONS, PUT, DELETE'
+      'Content-Type':'application/json; charset=UTF-8'
     })
   }
   constructor(private http:HttpClient) { }
 
   getUsers(): Observable<User>{
     return this.http.get<User>(this.apiURL + 'usuarios')
+    .pipe(retry(1), catchError(this.errorHandler));
+  }
+
+  getUserTypes(): Observable<UserType>{
+    return this.http.get<UserType>(this.apiURL + 'tiposUsuario')
+    .pipe(retry(1), catchError(this.errorHandler));
+  }
+
+  getEmployees(): Observable<Employee>{
+    return this.http.get<Employee>(this.apiURL + 'empleados')
+    .pipe(retry(1), catchError(this.errorHandler));
+  }
+
+  insertEmployee(jsonData): Observable<Employee>{
+    return this.http.post<Employee>(this.apiURL + 'empleado', jsonData, this.httpOptions)
+    .pipe(retry(1), catchError(this.errorHandler));
+  }
+
+  insertUser(jsonData): Observable<User>{
+    return this.http.post<User>(this.apiURL + 'usuario', jsonData, this.httpOptions)
+    .pipe(retry(1), catchError(this.errorHandler));
+  }
+
+  deleteUsuario(id): Observable<User>{
+    return this.http.delete<User>(this.apiURL + 'usuario/' + id, this.httpOptions)
+    .pipe(retry(1), catchError(this.errorHandler));
+  }
+
+  deleteEmpleado(id): Observable<Employee>{
+    return this.http.delete<Employee>(this.apiURL + 'empleado/' + id, this.httpOptions)
     .pipe(retry(1), catchError(this.errorHandler));
   }
 

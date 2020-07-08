@@ -15,6 +15,7 @@ import { PostService } from './services/post.service';
 import { ApipostService } from './services/apipost.service';
 import { NewPostComponent } from './components/new-post/new-post.component';
 import { UsersComponent } from './components/users/users.component';
+import { UserModalComponent } from './components/user-modal/user-modal.component';
 
 
 @NgModule({
@@ -24,8 +25,10 @@ import { UsersComponent } from './components/users/users.component';
     LogInComponent,
     ShowPostsComponent,
     NewPostComponent,
-    UsersComponent
+    UsersComponent,
+    UserModalComponent
   ],
+  entryComponents: [UserModalComponent,],
   imports: [
     BrowserModule,
     AppRoutingModule,
