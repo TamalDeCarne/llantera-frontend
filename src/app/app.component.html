@@ -1,0 +1,51 @@
+<!--- Navigation NavBar using Interpolacion
+  <app-header>
+  <mat-toolbar class="app-header">
+    <div fxHide gt-xs>
+      <button mat-icon-button (click)="onToggleSideNave()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+    <div>
+      <a routerLink="new-post">New Post Side</a>
+    </div>
+    <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+      <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+        <li *ngFor="let navLink of navLinks">
+          <a routerLink="{{ navLink }}"> {{ navLink }} </a>
+        </li>
+      </ul>
+    </div>
+  </mat-toolbar>
+</app-header>-->
+
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav opened mode="side" [fixedInViewPort]="fixed" color="primary" position="start" class="mat-drawer-open" style="visibility: visible;">
+    <div>
+      <mat-toolbar color="primary" class="app-header">
+     
+        <div>
+          <a href="#" class="title">Dashboard</a>
+        </div>
+      </mat-toolbar>
+        <mat-nav-list>
+            <a mat-list-item routerLink="users" routerLinkActive="active">Usuarios</a>
+        </mat-nav-list>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+      <mat-toolbar color="primary" class="app-header">
+        <div>
+          <a href="#" class="title">App</a>
+        </div>
+        <span class="nav-tool-items">
+          <a mat-button routerLink="new-post" routerLinkActive="active">New Post</a>
+          <a mat-button routerLink="post" routerLinkActive="active">Post</a>
+          <a mat-button routerLink="login" routerLinkActive="active">Log In</a>
+          <a mat-button mat-raised-button routerLink="register" routerLinkActive="active">Register</a>
+        </span>
+      </mat-toolbar>
+      <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

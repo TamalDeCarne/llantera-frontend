@@ -1,0 +1,13 @@
+<div class="container">
+    <mat-card class="card" *ngFor="let post of postsList">
+        <mat-card-header>
+            <mat-card-title>{{post.title}}</mat-card-title>
+            <mat-card-content>
+                <p>{{post.body}}</p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button>Boton</button>
+            </mat-card-actions>
+        </mat-card-header>
+    </mat-card>
+</div>

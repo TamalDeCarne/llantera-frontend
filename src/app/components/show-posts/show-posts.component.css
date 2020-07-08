@@ -1,0 +1,15 @@
+.container {
+    position: relative;
+    top: 80px;
+    height: 100%;
+}
+
+.container .mat-card {
+    padding: 40px 70px 50px;
+}
+
+.card {
+    justify-content: center;
+    padding: 500px;
+    margin: 40px;
+}

@@ -1,0 +1,29 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="box">
+      <mat-card-header>
+        <mat-card-title>New Post</mat-card-title>
+      </mat-card-header>
+      
+      <form class='login-form justify-content-center' [formGroup]="postForm" (ngSubmit)="submitPost()">
+        <mat-card-content>
+          <mat-form-field class="full-width">
+            <input matInput type="number" placeholder="userId" formControlName="userId" >
+            <mat-error *ngIf="postForm.controls.userId.hasError('required')">This field is mandatory</mat-error>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input matInput type="text" placeholder="Title" formControlName="title" >
+            <mat-error *ngIf="postForm.controls.title.hasError('required')">This field is mandatory.</mat-error>
+            <mat-error *ngIf="postForm.controls.title.hasError('minlength')">This field has to be minimum 5 characters long.</mat-error>
+            <mat-error *ngIf="postForm.controls.title.hasError('maxlength')">This field has a maximum length of 15.</mat-error>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input matInput type="text" placeholder="Body" formControlName="body" >
+            <mat-error *ngIf="postForm.controls.body.hasError('required')">This field is mandatory.</mat-error>
+            <mat-error *ngIf="postForm.controls.body.hasError('minlength')">This field has to be minimum 5 characters long.</mat-error>
+            <mat-error *ngIf="postForm.controls.body.hasError('maxlength')">This field has a maximum length of 100.</mat-error>
+          </mat-form-field>
+        </mat-card-content>
+        <button mat-stroked-button type="submit" color="primary" class="btn-block">Create Post</button>
+      </form>
+    </mat-card>
+  </div>
