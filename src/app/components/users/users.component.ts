@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApipostService } from '../../services/apipost.service';
-import { UserModalComponent } from '../user-modal/user-modal.component';
+import { UserModalComponent, UserUpdateComponent } from '../user-modal/user-modal.component';
 import { MatDialog } from '@angular/material';
 
 @Component({
@@ -11,7 +11,7 @@ import { MatDialog } from '@angular/material';
 export class UsersComponent implements OnInit {
 
   userList: any = [];
-  constructor(private usersService:ApipostService, public dialog: MatDialog) { }
+  constructor(private usersService:ApipostService, public dialog: MatDialog, private updateUser: UserUpdateComponent) { }
 
   ngOnInit() {
     this.loadUsers();
@@ -39,6 +39,11 @@ export class UsersComponent implements OnInit {
 
   deleteEmployee(id){
     return this.usersService.deleteEmpleado(id).subscribe((data: {}) => { console.log(data); });
+  }
+
+  updateModal(user){
+    this.updateUser.getUser(user.id);
+    this.dialog.open(UserUpdateComponent);
   }
 
 }

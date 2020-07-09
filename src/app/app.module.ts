@@ -15,7 +15,7 @@ import { PostService } from './services/post.service';
 import { ApipostService } from './services/apipost.service';
 import { NewPostComponent } from './components/new-post/new-post.component';
 import { UsersComponent } from './components/users/users.component';
-import { UserModalComponent } from './components/user-modal/user-modal.component';
+import { UserModalComponent, UserUpdateComponent } from './components/user-modal/user-modal.component';
 
 
 @NgModule({
@@ -26,9 +26,10 @@ import { UserModalComponent } from './components/user-modal/user-modal.component
     ShowPostsComponent,
     NewPostComponent,
     UsersComponent,
-    UserModalComponent
+    UserModalComponent,
+    UserUpdateComponent
   ],
-  entryComponents: [UserModalComponent,],
+  entryComponents: [UserModalComponent, UserUpdateComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

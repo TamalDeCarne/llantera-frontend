@@ -25,6 +25,11 @@ export class ApipostService {
     .pipe(retry(1), catchError(this.errorHandler));
   }
 
+  getUser(id): Observable<User>{
+    return this.http.get<User>(this.apiURL + 'usuario/'+id, this.httpOptions)
+    .pipe(retry(1), catchError(this.errorHandler));
+  }
+
   getUserTypes(): Observable<UserType>{
     return this.http.get<UserType>(this.apiURL + 'tiposUsuario')
     .pipe(retry(1), catchError(this.errorHandler));
@@ -42,6 +47,16 @@ export class ApipostService {
 
   insertUser(jsonData): Observable<User>{
     return this.http.post<User>(this.apiURL + 'usuario', jsonData, this.httpOptions)
+    .pipe(retry(1), catchError(this.errorHandler));
+  }
+
+  updateEmployee(jsonData): Observable<Employee>{
+    return this.http.put<Employee>(this.apiURL + 'empleado/' + jsonData.id, jsonData, this.httpOptions)
+    .pipe(retry(1), catchError(this.errorHandler));
+  }
+
+  updateUser(jsonData): Observable<User>{
+    return this.http.put<User>(this.apiURL + 'usuario/' + jsonData.id, jsonData, this.httpOptions)
     .pipe(retry(1), catchError(this.errorHandler));
   }
 
