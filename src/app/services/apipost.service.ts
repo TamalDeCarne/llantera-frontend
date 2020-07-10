@@ -55,8 +55,8 @@ export class ApipostService {
     .pipe(retry(1), catchError(this.errorHandler));
   }
 
-  updateUser(jsonData): Observable<User>{
-    return this.http.put<User>(this.apiURL + 'usuario/' + jsonData.id, jsonData, this.httpOptions)
+  updateUser(userId, jsonData): Observable<User>{
+    return this.http.put<User>(this.apiURL + 'usuario/' + userId, jsonData, this.httpOptions)
     .pipe(retry(1), catchError(this.errorHandler));
   }
 

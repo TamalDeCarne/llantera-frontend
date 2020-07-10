@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { UserTypeComponent } from './user-type.component';
 import { EmployeeModalComponent } from './employee-modal.component';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApipostService } from 'src/app/services/apipost.service';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { User } from 'src/app/models/user';
 import { Injectable } from '@angular/core';
 
@@ -34,6 +34,7 @@ export class UserModalComponent implements OnInit{
   constructor(private _formBuilder: FormBuilder,
      private apiService: ApipostService,
      public dialog: MatDialog,
+     public dialogRef: MatDialogRef<UserModalComponent>
      ) { }
 
   ngOnInit() {
@@ -56,7 +57,6 @@ export class UserModalComponent implements OnInit{
     return this.apiService.getUserTypes().subscribe(
       (data: {}) =>{
         this.userTypes = data;
-        console.log(this.userTypes);
       }
     );
   }
@@ -66,7 +66,6 @@ export class UserModalComponent implements OnInit{
       (data: {}) =>{
         this.employees = data;
         this.employees = this.employees.filter((employee) => employee.usuario === null );
-        console.log(this.employees);
       }
     );
   }
@@ -75,7 +74,6 @@ export class UserModalComponent implements OnInit{
     if(this.firstStep.valid){
       this.apiService.insertEmployee(this.firstStep.value).subscribe(
         (data: {}) =>{
-          console.log(data);
           this.loadUserTypes();
           this.loadEmployees();
         }
@@ -87,7 +85,7 @@ export class UserModalComponent implements OnInit{
     if(this.secondStep.valid){
       this.apiService.insertUser(this.secondStep.value).subscribe(
         (data: {}) => {
-          console.log(data);
+          this.dialogRef.close(true);
         }
       );
     }
@@ -107,10 +105,20 @@ export class UserModalComponent implements OnInit{
 
 export class UserUpdateComponent implements OnInit{
 
+  
+  @Input() username: string ;
+
   constructor(private _formBuilder: FormBuilder,
     private apiService: ApipostService,
-    public dialog: MatDialog,) {}
+    public dialog: MatDialog,
+    private dialogRef: MatDialogRef<UserUpdateComponent>,@Inject(MAT_DIALOG_DATA) data
+    ) {
+      this.userId = data.userId;
+      this.employeeId = data.employeeId;
+    }
 
+    userId : number;
+    employeeId: number;
   userData: User;
   
   isLinear = true;
@@ -126,13 +134,15 @@ export class UserUpdateComponent implements OnInit{
       empleado_id: ['', [Validators.required]],
       tipo_usuario_id: ['', [Validators.required]]
     });
+    this.getUser();
+    this.loadEmployees();
+    this.loadUserTypes();
   }
 
-  getUser(id) {
-    return this.apiService.getUser(id).subscribe(
+  getUser() {
+    return this.apiService.getUser(this.userId).subscribe(
       (data) => {
         this.userData = data;
-        console.log(this.userData);
         this.secondStep.patchValue({
           nombre_usuario: this.userData.nombre_usuario,
           empleado_id: this.userData.empleado.id,
@@ -145,26 +155,23 @@ export class UserUpdateComponent implements OnInit{
     return this.apiService.getUserTypes().subscribe(
       (data: {}) =>{
         this.userTypes = data;
-        console.log(this.userTypes);
       }
     );
   }
 
-  loadEmployees(user) {
+  loadEmployees() {
     return this.apiService.getEmployees().subscribe(
       (data: {}) =>{
         this.employees = data;
-        this.employees = this.employees.filter((employee) => employee.id === user.employee.id );
-        console.log(this.employees);
+        this.employees = this.employees.filter((employee) => employee.id === this.employeeId );
       }
     );
   }
 
-  updateEmployee(){
-
-  }
-
   updateUser(){
-
+    return this.apiService.updateUser(this.userId, this.secondStep.value).subscribe(
+      (data: {}) => {
+        this.dialogRef.close(true);
+      });
   }
 }

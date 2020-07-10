@@ -16,6 +16,7 @@ import { ApipostService } from './services/apipost.service';
 import { NewPostComponent } from './components/new-post/new-post.component';
 import { UsersComponent } from './components/users/users.component';
 import { UserModalComponent, UserUpdateComponent } from './components/user-modal/user-modal.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
 
 @NgModule({
@@ -27,9 +28,10 @@ import { UserModalComponent, UserUpdateComponent } from './components/user-modal
     NewPostComponent,
     UsersComponent,
     UserModalComponent,
-    UserUpdateComponent
+    UserUpdateComponent,
+    ConfirmDialogComponent
   ],
-  entryComponents: [UserModalComponent, UserUpdateComponent],
+  entryComponents: [UserModalComponent, UserUpdateComponent, ConfirmDialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
