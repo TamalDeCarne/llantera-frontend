@@ -13,7 +13,6 @@ import { retry, catchError } from 'rxjs/operators';
 export class PostService {
 
   baseURL='https://jsonplaceholder.typicode.com/';
-  apiURL='https://6a6utpxla8.execute-api.us-west-2.amazonaws.com/alpha/api/usuario';
 
   //injection del OBJ Http para manejar el baseURL
   httpOptions = {

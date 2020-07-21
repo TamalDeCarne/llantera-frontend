@@ -1,17 +1,11 @@
 import { Component, OnInit, Input, Inject } from '@angular/core';
-import { UserTypeComponent } from './user-type.component';
-import { EmployeeModalComponent } from './employee-modal.component';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApipostService } from 'src/app/services/apipost.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { User } from 'src/app/models/user';
 import { Injectable } from '@angular/core';
 
-export interface UserModalComponent {
-  nombre_usuario: string;
-  empleado: EmployeeModalComponent;
-  tipo_usuario: UserTypeComponent;
-}
+
 
 @Component({
   selector: 'app-user-modal',
@@ -21,9 +15,6 @@ export interface UserModalComponent {
 export class UserModalComponent implements OnInit{
 
   nombre_usuario: string;
-  empleado: EmployeeModalComponent;
-  tipo_usuario: UserTypeComponent;
-  
   isLinear = true;
   firstStep: FormGroup;
   secondStep: FormGroup;
