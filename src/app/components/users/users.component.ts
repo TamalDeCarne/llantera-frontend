@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ApipostService } from '../../services/apipost.service';
-import { UserModalComponent, UserUpdateComponent } from '../user-modal/user-modal.component';
+import { ApiLlanteraService } from '../../services/api-llantera.service';
+import { UserModalComponent } from '../user-modal/user-modal.component';
 import { MatDialog, MatDialogConfig, MatTableDataSource } from '@angular/material';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { Employee } from 'src/app/models/employee';
 import { UserType } from 'src/app/models/usertype';
 import { User } from 'src/app/models/user';
+import { UserUpdateComponent } from '../user-update/user-update.component';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class UsersComponent implements OnInit {
   userList: any = [];
   displayedColumns : string[] = ['nombre_usuario', 'nombre', 'apellidos', 'email', 'direccion', 'fecha_contratacion', 'acciones'];
   dataSource;
-  constructor(private usersService:ApipostService, 
+  constructor(private usersService:ApiLlanteraService, 
     public dialog: MatDialog
     ) { }
 

@@ -7,16 +7,18 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LogInComponent } from './components/log-in/log-in.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AngularMaterialModule } from './anuglar-material.module';
+import { AngularMaterialModule } from './angular-material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ShowPostsComponent } from './components/show-posts/show-posts.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PostService } from './services/post.service';
-import { ApipostService } from './services/apipost.service';
+import { ApiLlanteraService } from './services/api-llantera.service';
 import { NewPostComponent } from './components/new-post/new-post.component';
 import { UsersComponent } from './components/users/users.component';
-import { UserModalComponent, UserUpdateComponent } from './components/user-modal/user-modal.component';
+import { UserModalComponent } from './components/user-modal/user-modal.component';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { EmployeesComponent } from './components/employees/employees.component';
+import { UserUpdateComponent } from './components/user-update/user-update.component';
 
 
 @NgModule({
@@ -29,7 +31,8 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
     UsersComponent,
     UserModalComponent,
     UserUpdateComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    EmployeesComponent
   ],
   entryComponents: [UserModalComponent, UserUpdateComponent, ConfirmDialogComponent],
   imports: [
@@ -42,7 +45,7 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [PostService, ApipostService],
+  providers: [PostService, ApiLlanteraService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

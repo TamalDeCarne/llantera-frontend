@@ -1,0 +1,36 @@
+<div mat-dialog-content>
+    <mat-vertical-stepper [linear]="isLinear">
+      <mat-step [setControl]="secondStep">
+        <form [formGroup]="secondStep">
+          <ng-template matStepLabel>Actualizar Usuario</ng-template>
+          <mat-form-field appearance="outline">
+            <mat-label> Nombre de Usuario</mat-label>
+            <input matInput type="text" placeholder="Nombre de Usuario" formControlName="nombre_usuario" >
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label> Contraseña </mat-label>
+            <input matInput type="password" placeholder="Nombre de Usuario"  formControlName="contrasena">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+              <mat-label >Escoge al empleado</mat-label>
+              <mat-select formControlName="empleado_id" >
+                  <mat-option [(value)]="employee.id" *ngFor="let employee of employees">
+                      {{ employee.nombre }}
+                  </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label >Escoge su rol</mat-label>
+                <mat-select  formControlName="tipo_usuario_id" >
+                    <mat-option [(value)]="userType.id" *ngFor="let userType of userTypes">
+                        {{ userType.denominacion_usuario }}
+                    </mat-option>
+                </mat-select>
+              </mat-form-field>
+          <div>
+            <button mat-button matStepperNext (click)="updateUser()">Terminar</button>
+          </div>
+        </form>
+      </mat-step>
+    </mat-vertical-stepper>
+  </div>
