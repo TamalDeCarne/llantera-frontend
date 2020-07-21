@@ -40,18 +40,23 @@ export class ApiLlanteraService {
     .pipe(retry(1), catchError(this.errorHandler));
   }
 
+  getEmployee(id): Observable<Employee>{
+    return this.http.get<Employee>(this.apiURL + 'empleado/' + id, this.httpOptions)
+    .pipe(retry(1), catchError(this.errorHandler));
+  }
+
   insertEmployee(jsonData): Observable<Employee>{
     return this.http.post<Employee>(this.apiURL + 'empleado', jsonData, this.httpOptions)
     .pipe(retry(1), catchError(this.errorHandler));
   }
 
-  insertUser(jsonData): Observable<User>{
-    return this.http.post<User>(this.apiURL + 'usuario', jsonData, this.httpOptions)
+  updateEmployee(employeeId, jsonData): Observable<Employee>{
+    return this.http.put<Employee>(this.apiURL + 'empleado/' + employeeId, jsonData, this.httpOptions)
     .pipe(retry(1), catchError(this.errorHandler));
   }
 
-  updateEmployee(jsonData): Observable<Employee>{
-    return this.http.put<Employee>(this.apiURL + 'empleado/' + jsonData.id, jsonData, this.httpOptions)
+  insertUser(jsonData): Observable<User>{
+    return this.http.post<User>(this.apiURL + 'usuario', jsonData, this.httpOptions)
     .pipe(retry(1), catchError(this.errorHandler));
   }
 

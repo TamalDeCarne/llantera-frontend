@@ -3,8 +3,6 @@ import { ApiLlanteraService } from '../../services/api-llantera.service';
 import { UserModalComponent } from '../user-modal/user-modal.component';
 import { MatDialog, MatDialogConfig, MatTableDataSource } from '@angular/material';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
-import { Employee } from 'src/app/models/employee';
-import { UserType } from 'src/app/models/usertype';
 import { User } from 'src/app/models/user';
 import { UserUpdateComponent } from '../user-update/user-update.component';
 
@@ -19,7 +17,7 @@ export class UsersComponent implements OnInit {
   userList: any = [];
   displayedColumns : string[] = ['nombre_usuario', 'nombre', 'apellidos', 'email', 'direccion', 'fecha_contratacion', 'acciones'];
   dataSource;
-  constructor(private usersService:ApiLlanteraService, 
+  constructor(private usersService:ApiLlanteraService,
     public dialog: MatDialog
     ) { }
 
@@ -46,7 +44,7 @@ export class UsersComponent implements OnInit {
     });
 
   }
-//TODO correcto
+
   deleteUser(user){
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       data: {
@@ -58,7 +56,7 @@ export class UsersComponent implements OnInit {
       if(dialogResult){
         return this.usersService.deleteUsuario(user.id).subscribe((data: {}) => {
         this.deleteEmployee(user.empleado.id);
-        this.loadUsers(); 
+        this.loadUsers();
         });
       }
     })
@@ -69,7 +67,7 @@ export class UsersComponent implements OnInit {
   }
 
   updateModal(user){
-    
+
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
         data: {
           title: 'Estas a punto de actualizar un usuario',

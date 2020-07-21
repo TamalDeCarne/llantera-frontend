@@ -16,7 +16,7 @@ export class UserModalComponent implements OnInit{
   isLinear = true;
   firstStep: FormGroup;
   secondStep: FormGroup;
-  
+
   userTypes: any = [];
   employees: any = [];
 
@@ -31,7 +31,7 @@ export class UserModalComponent implements OnInit{
       nombre: ['', [Validators.required]],
       apellidos: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      telefono: ['', [Validators.required]],
+      telefono: ['', [Validators.required, Validators.maxLength(10)]],
       direccion: ['', [Validators.required]]
     });
     this.secondStep = this._formBuilder.group({

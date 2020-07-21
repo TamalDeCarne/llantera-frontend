@@ -41,7 +41,7 @@
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label >Escoge al empleado</mat-label>
-            <mat-select [(value)]="selected1" formControlName="empleado_id" name="employeesSelect">
+            <mat-select formControlName="empleado_id" name="employeesSelect">
                 <mat-option [(value)]="employee.id" *ngFor="let employee of employees">
                     {{ employee.nombre }}
                 </mat-option>
@@ -49,7 +49,7 @@
           </mat-form-field>
           <mat-form-field appearance="outline">
               <mat-label >Escoge su rol</mat-label>
-              <mat-select [(value)]="selected2" formControlName="tipo_usuario_id" name="userTypeSelect">
+              <mat-select formControlName="tipo_usuario_id" name="userTypeSelect">
                   <mat-option [(value)]="userType.id" *ngFor="let userType of userTypes">
                       {{ userType.denominacion_usuario }}
                   </mat-option>

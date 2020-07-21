@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -19,6 +19,8 @@ import { UserModalComponent } from './components/user-modal/user-modal.component
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { EmployeesComponent } from './components/employees/employees.component';
 import { UserUpdateComponent } from './components/user-update/user-update.component';
+import { EmployeeModalComponent } from './components/employee-modal/employee-modal.component';
+import { EmployeeUpdateComponent } from './components/employee-update/employee-update.component';
 
 
 @NgModule({
@@ -32,9 +34,11 @@ import { UserUpdateComponent } from './components/user-update/user-update.compon
     UserModalComponent,
     UserUpdateComponent,
     ConfirmDialogComponent,
-    EmployeesComponent
+    EmployeesComponent,
+    EmployeeModalComponent,
+    EmployeeUpdateComponent
   ],
-  entryComponents: [UserModalComponent, UserUpdateComponent, ConfirmDialogComponent],
+  entryComponents: [UserModalComponent, UserUpdateComponent, ConfirmDialogComponent, EmployeeUpdateComponent, EmployeeModalComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
