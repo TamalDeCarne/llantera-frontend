@@ -21,6 +21,8 @@ import { EmployeesComponent } from './components/employees/employees.component';
 import { UserUpdateComponent } from './components/user-update/user-update.component';
 import { EmployeeModalComponent } from './components/employee-modal/employee-modal.component';
 import { EmployeeUpdateComponent } from './components/employee-update/employee-update.component';
+import { AdminUserComponent } from './components/admin-user/admin-user.component';
+import { EmployeeUserComponent } from './components/employee-user/employee-user.component';
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import { EmployeeUpdateComponent } from './components/employee-update/employee-u
     ConfirmDialogComponent,
     EmployeesComponent,
     EmployeeModalComponent,
-    EmployeeUpdateComponent
+    EmployeeUpdateComponent,
+    AdminUserComponent,
+    EmployeeUserComponent
   ],
   entryComponents: [UserModalComponent, UserUpdateComponent, ConfirmDialogComponent, EmployeeUpdateComponent, EmployeeModalComponent],
   imports: [

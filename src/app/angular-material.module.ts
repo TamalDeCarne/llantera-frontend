@@ -19,7 +19,9 @@ import {
      MatTableModule,
      MatPaginatorModule,
      MatDialogModule,
-     MatStepperModule
+     MatStepperModule,
+     MatExpansionModule,
+     MatAccordion
 } from '@angular/material';
 
 @NgModule({
@@ -44,7 +46,8 @@ import {
         MatTableModule,
         MatPaginatorModule,
         MatDialogModule,
-        MatStepperModule
+        MatStepperModule,
+        MatExpansionModule
      ],
     exports: [
         MatCardModule,
@@ -65,7 +68,8 @@ import {
         MatTableModule,
         MatPaginatorModule,
         MatDialogModule,
-        MatStepperModule
+        MatStepperModule,
+        MatExpansionModule
     ],
     providers: [
         MatDatepickerModule,
