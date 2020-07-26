@@ -23,6 +23,9 @@ import { EmployeeModalComponent } from './components/employee-modal/employee-mod
 import { EmployeeUpdateComponent } from './components/employee-update/employee-update.component';
 import { AdminUserComponent } from './components/admin-user/admin-user.component';
 import { EmployeeUserComponent } from './components/employee-user/employee-user.component';
+import { ClientsComponent } from './components/clients/clients.component';
+import { ClientModalComponent } from './components/client-modal/client-modal.component';
+import { ClientUpdateComponent } from './components/client-update/client-update.component';
 
 
 @NgModule({
@@ -40,9 +43,12 @@ import { EmployeeUserComponent } from './components/employee-user/employee-user.
     EmployeeModalComponent,
     EmployeeUpdateComponent,
     AdminUserComponent,
-    EmployeeUserComponent
+    EmployeeUserComponent,
+    ClientsComponent,
+    ClientModalComponent,
+    ClientUpdateComponent
   ],
-  entryComponents: [UserModalComponent, UserUpdateComponent, ConfirmDialogComponent, EmployeeUpdateComponent, EmployeeModalComponent],
+  entryComponents: [UserModalComponent, UserUpdateComponent, ConfirmDialogComponent, EmployeeUpdateComponent, EmployeeModalComponent, ClientModalComponent, ClientUpdateComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

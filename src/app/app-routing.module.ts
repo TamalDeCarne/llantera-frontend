@@ -8,6 +8,7 @@ import { UsersComponent } from './components/users/users.component'
 import { EmployeesComponent } from './components/employees/employees.component';
 import { AdminUserComponent } from './components/admin-user/admin-user.component';
 import { EmployeeUserComponent } from './components/employee-user/employee-user.component';
+import { ClientsComponent } from './components/clients/clients.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'login'},
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path: 'users', component: UsersComponent},
   {path: 'employees', component: EmployeesComponent},
   {path: 'users/admin', component: AdminUserComponent},
-  {path: 'users/employees', component: EmployeeUserComponent}
+  {path: 'users/employees', component: EmployeeUserComponent},
+  {path: 'clients', component: ClientsComponent}
 ];
 
 @NgModule({
