@@ -1,1 +1,54 @@
-<p>client-modal works!</p>
+<div mat-dialog-content>
+  <mat-vertical-stepper [linear]="isLinear">
+    <mat-step [stepControl]="firstStep">
+      <form [formGroup]="firstStep">
+        <ng-template matStepLabel>Registrar Cliente</ng-template>
+        <mat-form-field appearance="outline">
+          <mat-label> Nombre(s)</mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Bernardo"
+            formControlName="nombre"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label> Apellido(s)</mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Elias"
+            formControlName="apellidos"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label> Telefono</mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="1234566789"
+            formControlName="telefono"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label> Email</mat-label>
+          <input
+            matInput
+            type="email"
+            placeholder="user@mal.com"
+            formControlName="email"
+          />
+        </mat-form-field>
+        <div></div>
+      </form>
+    </mat-step>
+
+    <mat-step
+      >
+      <div>      <button mat-raised-button matStepperNext (click)="insertClient()">
+        Registrar
+      </button></div>
+
+    </mat-step>
+  </mat-vertical-stepper>
+</div>

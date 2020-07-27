@@ -5,5 +5,4 @@ export class Client {
   email: string;
   fecha_registro: Date;
   telefono: string;
-  vehiculo: Vehiculo
 }

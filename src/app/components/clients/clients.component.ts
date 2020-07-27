@@ -12,22 +12,22 @@ import { ClientUpdateComponent } from '../client-update/client-update.component'
   styleUrls: ['./clients.component.css']
 })
 export class ClientsComponent implements OnInit {
-  employeeList: any = [];
-  displayedColumns: string[] = ['nombre', 'apellidos', 'email', 'fecha_registro', 'telefono', 'direccion', 'acciones',];
+  clientList: any = [];
+  displayedColumns: string[] = ['nombre', 'apellidos', 'email', 'fecha_registro', 'telefono', 'acciones',];
   dataSource;
 
 
-  constructor(private employeesService: ApiLlanteraService, public dialog: MatDialog) { }
+  constructor(private clientsService: ApiLlanteraService, public dialog: MatDialog) { }
 
   ngOnInit() {
-    this.loadEmployees();
+    this.loadClients();
   }
 
-  loadEmployees() {
-    return this.employeesService.getEmployees().subscribe(
+  loadClients() {
+    return this.clientsService.getClients().subscribe(
       (data: {}) => {
-        this.employeeList = data;
-        this.dataSource = new MatTableDataSource<Client>(this.employeeList);
+        this.clientList = data;
+        this.dataSource = new MatTableDataSource<Client>(this.clientList);
       }
     );
   }
@@ -37,13 +37,13 @@ export class ClientsComponent implements OnInit {
 
     dialogRef1.afterClosed().subscribe(dialogRef => {
       if (dialogRef) {
-        this.loadEmployees();
+        this.loadClients();
       }
     });
 
   }
 
-  deleteEmployee(employee) {
+  deleteClient(client) {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       data: {
         title: 'Estas a punto de borrar un usuario',
@@ -52,15 +52,15 @@ export class ClientsComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(dialogResult => {
       if (dialogResult) {
-        this.employeesService.deleteEmpleado(employee.id).subscribe((data: {}) => {
-          this.loadEmployees();
+        this.clientsService.deleteClient(client.id).subscribe((data: {}) => {
+          this.loadClients();
         });
 
       }
     });
   }
 
-  updateModal(employee) {
+  updateClient(client) {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       data: {
         title: 'Estas a punto de actualizar un usuario',
@@ -72,12 +72,12 @@ export class ClientsComponent implements OnInit {
       if (dialogResult) {
         const dialogconfig = new MatDialogConfig();
         dialogconfig.data = {
-          employeeId: employee.id,
+          clientId: client.id,
         };
         const updatedialog = this.dialog.open(ClientUpdateComponent, dialogconfig);
         updatedialog.afterClosed().subscribe(dialogRef => {
           if (dialogRef) {
-            this.loadEmployees();
+            this.loadClients();
           }
         });
       }

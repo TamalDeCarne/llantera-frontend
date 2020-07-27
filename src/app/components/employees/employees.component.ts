@@ -56,7 +56,7 @@ export class EmployeesComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(dialogResult => {
       if (dialogResult) {
-        this.employeesService.deleteEmpleado(employee.id).subscribe((data: {}) => {
+        this.employeesService.deleteEmployee(employee.id).subscribe((data: {}) => {
           this.loadEmployees();
         });
 

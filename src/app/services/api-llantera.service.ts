@@ -66,12 +66,12 @@ export class ApiLlanteraService {
     .pipe(retry(1), catchError(this.errorHandler));
   }
 
-  deleteUsuario(id): Observable<User>{
+  deleteUser(id): Observable<User>{
     return this.http.delete<User>(this.apiURL + 'usuario/' + id, this.httpOptions)
     .pipe(retry(1), catchError(this.errorHandler));
   }
 
-  deleteEmpleado(id): Observable<Employee>{
+  deleteEmployee(id): Observable<Employee>{
     return this.http.delete<Employee>(this.apiURL + 'empleado/' + id, this.httpOptions)
     .pipe(retry(1), catchError(this.errorHandler));
   }
@@ -83,6 +83,21 @@ export class ApiLlanteraService {
 
   getClient(id): Observable<Client>{
     return this.http.get<Client>(this.apiURL + 'cliente/'+id, this.httpOptions)
+    .pipe(retry(1), catchError(this.errorHandler));
+  }
+
+  deleteClient(id): Observable<Client>{
+    return this.http.delete<Client>(this.apiURL + 'cliente/' + id, this.httpOptions)
+    .pipe(retry(1), catchError(this.errorHandler));
+  }
+
+  insertClient(jsonData): Observable<Client>{
+    return this.http.post<Client>(this.apiURL + 'cliente', jsonData, this.httpOptions)
+    .pipe(retry(1), catchError(this.errorHandler));
+  }
+
+  updateClient(userId, jsonData): Observable<Client>{
+    return this.http.put<Client>(this.apiURL + 'cliente/' + userId, jsonData, this.httpOptions)
     .pipe(retry(1), catchError(this.errorHandler));
   }
 
