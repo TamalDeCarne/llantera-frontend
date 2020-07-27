@@ -23,6 +23,7 @@ import { EmployeeModalComponent } from './components/employee-modal/employee-mod
 import { EmployeeUpdateComponent } from './components/employee-update/employee-update.component';
 import { AdminUserComponent } from './components/admin-user/admin-user.component';
 import { EmployeeUserComponent } from './components/employee-user/employee-user.component';
+import { GarantiasComponent } from './components/garantias/garantias.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { EmployeeUserComponent } from './components/employee-user/employee-user.
     EmployeeModalComponent,
     EmployeeUpdateComponent,
     AdminUserComponent,
-    EmployeeUserComponent
+    EmployeeUserComponent,
+    GarantiasComponent
   ],
   entryComponents: [UserModalComponent, UserUpdateComponent, ConfirmDialogComponent, EmployeeUpdateComponent, EmployeeModalComponent],
   imports: [

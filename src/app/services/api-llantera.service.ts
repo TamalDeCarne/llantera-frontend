@@ -75,6 +75,8 @@ export class ApiLlanteraService {
     .pipe(retry(1), catchError(this.errorHandler));
   }
 
+  
+
   errorHandler(error){
     let errorMessage = '';
 
