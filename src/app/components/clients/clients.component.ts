@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiLlanteraService } from 'src/app/services/api-llantera.service';
+import { MatDialog, MatTableDataSource, MatDialogConfig } from '@angular/material';
+import { Client } from 'src/app/models/client';
+import { ClientModalComponent } from '../client-modal/client-modal.component';
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
+import { ClientUpdateComponent } from '../client-update/client-update.component';
 
 @Component({
   selector: 'app-clients',
@@ -6,10 +12,75 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./clients.component.css']
 })
 export class ClientsComponent implements OnInit {
+  employeeList: any = [];
+  displayedColumns: string[] = ['nombre', 'apellidos', 'email', 'fecha_registro', 'telefono', 'direccion', 'acciones',];
+  dataSource;
 
-  constructor() { }
+
+  constructor(private employeesService: ApiLlanteraService, public dialog: MatDialog) { }
 
   ngOnInit() {
+    this.loadEmployees();
   }
 
+  loadEmployees() {
+    return this.employeesService.getEmployees().subscribe(
+      (data: {}) => {
+        this.employeeList = data;
+        this.dataSource = new MatTableDataSource<Client>(this.employeeList);
+      }
+    );
+  }
+
+  openModal() {
+    const dialogRef1 = this.dialog.open(ClientModalComponent);
+
+    dialogRef1.afterClosed().subscribe(dialogRef => {
+      if (dialogRef) {
+        this.loadEmployees();
+      }
+    });
+
+  }
+
+  deleteEmployee(employee) {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      data: {
+        title: 'Estas a punto de borrar un usuario',
+        message: '¿Estas seguro?'
+      }
+    });
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      if (dialogResult) {
+        this.employeesService.deleteEmpleado(employee.id).subscribe((data: {}) => {
+          this.loadEmployees();
+        });
+
+      }
+    });
+  }
+
+  updateModal(employee) {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      data: {
+        title: 'Estas a punto de actualizar un usuario',
+        message: '¿Estas seguro?'
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      if (dialogResult) {
+        const dialogconfig = new MatDialogConfig();
+        dialogconfig.data = {
+          employeeId: employee.id,
+        };
+        const updatedialog = this.dialog.open(ClientUpdateComponent, dialogconfig);
+        updatedialog.afterClosed().subscribe(dialogRef => {
+          if (dialogRef) {
+            this.loadEmployees();
+          }
+        });
+      }
+    });
+  }
 }

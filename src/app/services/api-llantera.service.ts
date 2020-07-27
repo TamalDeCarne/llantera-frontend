@@ -5,6 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { UserType } from '../models/usertype';
 import { Employee } from '../models/employee';
+import { Client } from '../models/client';
 
 @Injectable({
   providedIn: 'root'
@@ -74,6 +75,17 @@ export class ApiLlanteraService {
     return this.http.delete<Employee>(this.apiURL + 'empleado/' + id, this.httpOptions)
     .pipe(retry(1), catchError(this.errorHandler));
   }
+
+  getClients(): Observable<Client>{
+    return this.http.get<Client>(this.apiURL + 'clientes')
+    .pipe(retry(1), catchError(this.errorHandler));
+  }
+
+  getClient(id): Observable<Client>{
+    return this.http.get<Client>(this.apiURL + 'cliente/'+id, this.httpOptions)
+    .pipe(retry(1), catchError(this.errorHandler));
+  }
+
 
   errorHandler(error){
     let errorMessage = '';
