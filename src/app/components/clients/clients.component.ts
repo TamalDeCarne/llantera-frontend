@@ -1,53 +1,49 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiLlanteraService } from 'src/app/services/api-llantera.service';
 import { MatDialog, MatTableDataSource, MatDialogConfig } from '@angular/material';
-import { Employee } from 'src/app/models/employee';
-import { EmployeeModalComponent } from '../employee-modal/employee-modal.component';
+import { Client } from 'src/app/models/client';
+import { ClientModalComponent } from '../client-modal/client-modal.component';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
-import { EmployeeUpdateComponent } from '../employee-update/employee-update.component';
+import { ClientUpdateComponent } from '../client-update/client-update.component';
 
 @Component({
-  selector: 'app-employees',
-  templateUrl: './employees.component.html',
-  styleUrls: ['./employees.component.css']
+  selector: 'app-clients',
+  templateUrl: './clients.component.html',
+  styleUrls: ['./clients.component.css']
 })
-
-
-export class EmployeesComponent implements OnInit {
-
-
-  employeeList: any = [];
-  displayedColumns: string[] = ['nombre', 'apellidos', 'email', 'fecha_contratacion', 'telefono', 'direccion', 'acciones',];
+export class ClientsComponent implements OnInit {
+  clientList: any = [];
+  displayedColumns: string[] = ['nombre', 'apellidos', 'email', 'fecha_registro', 'telefono', 'acciones',];
   dataSource;
 
 
-  constructor(private employeesService: ApiLlanteraService, public dialog: MatDialog) { }
+  constructor(private clientsService: ApiLlanteraService, public dialog: MatDialog) { }
 
   ngOnInit() {
-    this.loadEmployees();
+    this.loadClients();
   }
 
-  loadEmployees() {
-    return this.employeesService.getEmployees().subscribe(
+  loadClients() {
+    return this.clientsService.getClients().subscribe(
       (data: {}) => {
-        this.employeeList = data;
-        this.dataSource = new MatTableDataSource<Employee>(this.employeeList);
+        this.clientList = data;
+        this.dataSource = new MatTableDataSource<Client>(this.clientList);
       }
     );
   }
 
   openModal() {
-    const dialogRef1 = this.dialog.open(EmployeeModalComponent);
+    const dialogRef1 = this.dialog.open(ClientModalComponent);
 
     dialogRef1.afterClosed().subscribe(dialogRef => {
       if (dialogRef) {
-        this.loadEmployees();
+        this.loadClients();
       }
     });
 
   }
 
-  deleteEmployee(employee) {
+  deleteClient(client) {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       data: {
         title: 'Estas a punto de borrar un usuario',
@@ -56,15 +52,15 @@ export class EmployeesComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(dialogResult => {
       if (dialogResult) {
-        this.employeesService.deleteEmployee(employee.id).subscribe((data: {}) => {
-          this.loadEmployees();
+        this.clientsService.deleteClient(client.id).subscribe((data: {}) => {
+          this.loadClients();
         });
 
       }
     });
   }
 
-  updateModal(employee) {
+  updateClient(client) {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       data: {
         title: 'Estas a punto de actualizar un usuario',
@@ -76,16 +72,15 @@ export class EmployeesComponent implements OnInit {
       if (dialogResult) {
         const dialogconfig = new MatDialogConfig();
         dialogconfig.data = {
-          employeeId: employee.id,
+          clientId: client.id,
         };
-        const updatedialog = this.dialog.open(EmployeeUpdateComponent, dialogconfig);
+        const updatedialog = this.dialog.open(ClientUpdateComponent, dialogconfig);
         updatedialog.afterClosed().subscribe(dialogRef => {
           if (dialogRef) {
-            this.loadEmployees();
+            this.loadClients();
           }
         });
       }
     });
   }
-
 }

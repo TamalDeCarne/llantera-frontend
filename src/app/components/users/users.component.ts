@@ -54,7 +54,7 @@ export class UsersComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(dialogResult => {
       if(dialogResult){
-        return this.usersService.deleteUsuario(user.id).subscribe((data: {}) => {
+        return this.usersService.deleteUser(user.id).subscribe((data: {}) => {
         this.deleteEmployee(user.empleado.id);
         this.loadUsers();
         });
@@ -63,7 +63,7 @@ export class UsersComponent implements OnInit {
   }
 
   deleteEmployee(id){
-    return this.usersService.deleteEmpleado(id).subscribe((data: {}) => { console.log(data); });
+    return this.usersService.deleteEmployee(id).subscribe((data: {}) => { console.log(data); });
   }
 
   updateModal(user){

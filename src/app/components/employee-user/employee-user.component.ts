@@ -17,7 +17,7 @@ export class EmployeeUserComponent implements OnInit {
   dataSource;
   constructor(private usersService: ApiLlanteraService,
     public dialog: MatDialog) { }
-  
+
     ngOnInit() {
       this.loadUsers();
   }
@@ -25,7 +25,7 @@ export class EmployeeUserComponent implements OnInit {
   loadUsers() {
     return this.usersService.getUsers().subscribe(
       (data: {}) =>{
-        
+
           this.userList = data;
         this.userList = this.userList.filter((user) => user.tipo_usuario.id === 1);
         this.dataSource = new MatTableDataSource<User>(this.userList);
@@ -42,7 +42,7 @@ export class EmployeeUserComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(dialogResult => {
       if(dialogResult){
-        return this.usersService.deleteUsuario(user.id).subscribe((data: {}) => {
+        return this.usersService.deleteUser(user.id).subscribe((data: {}) => {
         this.deleteEmployee(user.empleado.id);
         this.loadUsers();
         });
@@ -51,7 +51,7 @@ export class EmployeeUserComponent implements OnInit {
   }
 
   deleteEmployee(id){
-    return this.usersService.deleteEmpleado(id).subscribe((data: {}) => { console.log(data); });
+    return this.usersService.deleteEmployee(id).subscribe((data: {}) => { console.log(data); });
   }
 
   updateModal(user){

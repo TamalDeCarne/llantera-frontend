@@ -24,6 +24,10 @@ import { EmployeeUpdateComponent } from './components/employee-update/employee-u
 import { AdminUserComponent } from './components/admin-user/admin-user.component';
 import { EmployeeUserComponent } from './components/employee-user/employee-user.component';
 import { GarantiasComponent } from './components/garantias/garantias.component';
+import { ClientsComponent } from './components/clients/clients.component';
+import { ClientModalComponent } from './components/client-modal/client-modal.component';
+import { ClientUpdateComponent } from './components/client-update/client-update.component';
+
 
 
 @NgModule({
@@ -42,9 +46,12 @@ import { GarantiasComponent } from './components/garantias/garantias.component';
     EmployeeUpdateComponent,
     AdminUserComponent,
     EmployeeUserComponent,
-    GarantiasComponent
+    GarantiasComponent,
+    ClientsComponent,
+    ClientModalComponent,
+    ClientUpdateComponent
   ],
-  entryComponents: [UserModalComponent, UserUpdateComponent, ConfirmDialogComponent, EmployeeUpdateComponent, EmployeeModalComponent],
+  entryComponents: [UserModalComponent, UserUpdateComponent, ConfirmDialogComponent, EmployeeUpdateComponent, EmployeeModalComponent, ClientModalComponent, ClientUpdateComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
