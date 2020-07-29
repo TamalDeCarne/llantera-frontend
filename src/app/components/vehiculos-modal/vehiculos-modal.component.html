@@ -1,1 +1,51 @@
-<p>vehiculos-modal works!</p>
+<div mat-dialog-content>
+  <mat-vertical-stepper [linear]="isLinear">
+    <mat-step [stepControl]="firstStep">
+      <form [formGroup]="firstStep">
+        <ng-template matStepLabel>Registrar Vehiculo</ng-template>
+        <mat-form-field appearance="outline">
+          <mat-label> Modelo(s)</mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Jetta"
+            formControlName="modelo"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label> Descripcion(s)</mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Carro azul"
+            formControlName="descripcion"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label >Año del vehiculo</mat-label>
+          <mat-select formControlName="fecha_fabricacion" name="fechaSelect">
+              <mat-option [(value)]="year" *ngFor="let year of carYears">
+                  {{ year }}
+              </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Escoge cliente</mat-label>
+          <mat-select formControlName="cliente_id" name="clienteSelect">
+            <mat-option [(value)]="client.id" *ngFor="let client of clients">
+              {{ client.nombre }} {{ client.apellidos }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </form>
+    </mat-step>
+
+    <mat-step>
+      <div>
+        <button mat-raised-button matStepperNext (click)="insertVehicle()">
+          Registrar
+        </button>
+      </div>
+    </mat-step>
+  </mat-vertical-stepper>
+</div>

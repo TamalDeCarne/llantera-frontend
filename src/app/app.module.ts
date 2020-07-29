@@ -63,17 +63,19 @@ import { VehiculosUpdateComponent } from './components/vehiculos-update/vehiculo
     TipoParteUpdateComponent,
     VehiculosComponent,
     VehiculosModalComponent,
-    VehiculosUpdateComponent
+    VehiculosUpdateComponent,
   ],
   entryComponents: [
-    UserModalComponent, 
-    UserUpdateComponent, 
-    ConfirmDialogComponent, 
-    EmployeeUpdateComponent, 
-    EmployeeModalComponent, 
-    ClientModalComponent, 
+    UserModalComponent,
+    UserUpdateComponent,
+    ConfirmDialogComponent,
+    EmployeeUpdateComponent,
+    EmployeeModalComponent,
+    ClientModalComponent,
     ClientUpdateComponent,
-    GarantiaUpdateComponent
+    GarantiaUpdateComponent,
+    VehiculosModalComponent,
+    VehiculosUpdateComponent,
   ],
   imports: [
     BrowserModule,

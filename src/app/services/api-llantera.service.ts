@@ -6,6 +6,7 @@ import { retry, catchError } from 'rxjs/operators';
 import { UserType } from '../models/usertype';
 import { Employee } from '../models/employee';
 import { Client } from '../models/client';
+import { Vehiculo } from '../models/vehiculo';
 
 @Injectable({
   providedIn: 'root'
@@ -98,6 +99,31 @@ export class ApiLlanteraService {
 
   updateClient(userId, jsonData): Observable<Client>{
     return this.http.put<Client>(this.apiURL + 'cliente/' + userId, jsonData, this.httpOptions)
+    .pipe(retry(1), catchError(this.errorHandler));
+  }
+
+  getVehicles(): Observable<Vehiculo>{
+    return this.http.get<Vehiculo>(this.apiURL + 'vehiculos')
+    .pipe(retry(1), catchError(this.errorHandler));
+  }
+
+  getVehicle(id): Observable<Vehiculo>{
+    return this.http.get<Vehiculo>(this.apiURL + 'vehiculo/'+id, this.httpOptions)
+    .pipe(retry(1), catchError(this.errorHandler));
+  }
+
+  deleteVehicle(id): Observable<Vehiculo>{
+    return this.http.delete<Vehiculo>(this.apiURL + 'vehiculo/' + id, this.httpOptions)
+    .pipe(retry(1), catchError(this.errorHandler));
+  }
+
+  insertVehicle(jsonData): Observable<Vehiculo>{
+    return this.http.post<Vehiculo>(this.apiURL + 'vehiculo', jsonData, this.httpOptions)
+    .pipe(retry(1), catchError(this.errorHandler));
+  }
+
+  updateVehicle(userId, jsonData): Observable<Vehiculo>{
+    return this.http.put<Vehiculo>(this.apiURL + 'vehiculo/' + userId, jsonData, this.httpOptions)
     .pipe(retry(1), catchError(this.errorHandler));
   }
 
