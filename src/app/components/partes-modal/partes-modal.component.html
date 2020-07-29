@@ -1,0 +1,33 @@
+<div mat-dialog-content>
+    <mat-vertical-stepper [linear]="isLinear">
+      <mat-step [setControl]="secondStep">
+        <form [formGroup]="secondStep">
+          <ng-template matStepLabel>Nueva Parte</ng-template>
+          <mat-form-field appearance="outline">
+            <mat-label> Nombre de Parte</mat-label>
+            <input matInput type="text" placeholder="Nombre de Parte" formControlName="nombre_parte" >
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label> Descripcion </mat-label>
+            <input matInput type="text" placeholder="Descripcion"  formControlName="descripcion_parte">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+              <mat-label >Tipo de Parte</mat-label>
+              <mat-select formControlName="tipo_parte_id" >
+                  <mat-option [(value)]="tipoparte.id" *ngFor="let tipoparte of tiposParte">
+                      {{ tipoparte.denominacion_parte }}
+                  </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label> Precio </mat-label>
+              <input matInput type="number" placeholder="Precio"  formControlName="precio">
+            </mat-form-field>
+          <div>
+            <button mat-button matStepperNext (click)="insertParte()">Terminar</button>
+          </div>
+        </form>
+      </mat-step>
+    </mat-vertical-stepper>
+  </div>
+

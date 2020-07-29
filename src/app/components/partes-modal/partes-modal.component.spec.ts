@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GarantiaUpdateComponent } from './garantia-update.component';
+import { PartesModalComponent } from './partes-modal.component';
 
-describe('GarantiaUpdateComponent', () => {
-  let component: GarantiaUpdateComponent;
-  let fixture: ComponentFixture<GarantiaUpdateComponent>;
+describe('PartesModalComponent', () => {
+  let component: PartesModalComponent;
+  let fixture: ComponentFixture<PartesModalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GarantiaUpdateComponent ]
+      declarations: [ PartesModalComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GarantiaUpdateComponent);
+    fixture = TestBed.createComponent(PartesModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

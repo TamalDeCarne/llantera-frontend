@@ -9,6 +9,10 @@ import { EmployeesComponent } from './components/employees/employees.component';
 import { AdminUserComponent } from './components/admin-user/admin-user.component';
 import { EmployeeUserComponent } from './components/employee-user/employee-user.component';
 import { ClientsComponent } from './components/clients/clients.component';
+import { GarantiasComponent } from './components/garantias/garantias.component';
+import { MotorComponent } from './components/motor/motor.component';
+import { CarroceriaComponent } from './components/carroceria/carroceria.component';
+import { PartesComponent } from './components/partes/partes.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'login'},
@@ -20,7 +24,11 @@ const routes: Routes = [
   {path: 'employees', component: EmployeesComponent},
   {path: 'users/admin', component: AdminUserComponent},
   {path: 'users/employees', component: EmployeeUserComponent},
-  {path: 'clients', component: ClientsComponent}
+  {path: 'clients', component: ClientsComponent},
+  {path: 'partes/motor', component: MotorComponent},
+  {path: 'partes/carroceria', component: CarroceriaComponent},
+  {path: 'partes', component: PartesComponent},
+  {path: 'garantias', component: GarantiasComponent}
 ];
 
 @NgModule({

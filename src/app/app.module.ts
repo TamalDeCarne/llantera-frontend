@@ -27,13 +27,17 @@ import { GarantiasComponent } from './components/garantias/garantias.component';
 import { ClientsComponent } from './components/clients/clients.component';
 import { ClientModalComponent } from './components/client-modal/client-modal.component';
 import { ClientUpdateComponent } from './components/client-update/client-update.component';
-import { GarantiaUpdateComponent } from './components/garantia-update/garantia-update.component';
 import { TipoParteComponent } from './components/tipo-parte/tipo-parte.component';
 import { TipoParteModalComponent } from './components/tipo-parte-modal/tipo-parte-modal.component';
 import { TipoParteUpdateComponent } from './components/tipo-parte-update/tipo-parte-update.component';
 import { VehiculosComponent } from './components/vehiculos/vehiculos.component';
 import { VehiculosModalComponent } from './components/vehiculos-modal/vehiculos-modal.component';
 import { VehiculosUpdateComponent } from './components/vehiculos-update/vehiculos-update.component';
+import { PartesComponent } from './components/partes/partes.component';
+import { PartesModalComponent } from './components/partes-modal/partes-modal.component';
+import { PartesUpdateComponent } from './components/partes-update/partes-update.component';
+import { MotorComponent } from './components/motor/motor.component';
+import { CarroceriaComponent } from './components/carroceria/carroceria.component';
 
 
 
@@ -57,13 +61,17 @@ import { VehiculosUpdateComponent } from './components/vehiculos-update/vehiculo
     ClientModalComponent,
     ClientUpdateComponent,
     GarantiasComponent,
-    GarantiaUpdateComponent,
     TipoParteComponent,
     TipoParteModalComponent,
     TipoParteUpdateComponent,
     VehiculosComponent,
     VehiculosModalComponent,
-    VehiculosUpdateComponent
+    VehiculosUpdateComponent,
+    PartesComponent,
+    PartesModalComponent,
+    PartesUpdateComponent,
+    MotorComponent,
+    CarroceriaComponent
   ],
   entryComponents: [
     UserModalComponent, 
@@ -73,7 +81,8 @@ import { VehiculosUpdateComponent } from './components/vehiculos-update/vehiculo
     EmployeeModalComponent, 
     ClientModalComponent, 
     ClientUpdateComponent,
-    GarantiaUpdateComponent
+    PartesModalComponent,
+    PartesUpdateComponent
   ],
   imports: [
     BrowserModule,

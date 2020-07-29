@@ -6,6 +6,9 @@ import { retry, catchError } from 'rxjs/operators';
 import { UserType } from '../models/usertype';
 import { Employee } from '../models/employee';
 import { Client } from '../models/client';
+import { Garantia } from '../models/garantia';
+import { Parte } from '../models/parte';
+import { TipoParte } from '../models/tipoparte';
 
 @Injectable({
   providedIn: 'root'
@@ -101,6 +104,47 @@ export class ApiLlanteraService {
     .pipe(retry(1), catchError(this.errorHandler));
   }
 
+  getGarantias(): Observable<Garantia>{
+    return this.http.get<Garantia>(this.apiURL + 'garantias', this.httpOptions)
+    .pipe(retry(1), catchError(this.errorHandler));
+  }
+
+  deleteGarantia(id): Observable<Garantia>{
+    return this.http.delete<Garantia>(this.apiURL + 'garantia/' + id, this.httpOptions)
+    .pipe(retry(1), catchError(this.errorHandler));
+  }
+
+  getPartes(): Observable<Parte>{
+    return this.http.get<Parte>(this.apiURL + 'partes', this.httpOptions)
+    .pipe(retry(1), catchError(this.errorHandler));
+  }
+
+  getParte(id): Observable<Parte>{
+    return this.http.get<Parte>(this.apiURL + 'parte/'+ id, this.httpOptions)
+    .pipe(retry(1), catchError(this.errorHandler));
+  }
+
+  insertParte(jsonData): Observable<Parte>{
+    return this.http.post<Parte>(this.apiURL + 'parte', jsonData, this.httpOptions)
+    .pipe(retry(1), catchError(this.errorHandler));
+  }
+
+  updateParte(id, jsonData): Observable<Parte>{
+    return this.http.put<Parte>(this.apiURL + 'parte/'+ id, jsonData, this.httpOptions)
+    .pipe(retry(1), catchError(this.errorHandler));
+  }
+
+  deleteParte(id): Observable<Parte>{
+    return this.http.delete<Parte>(this.apiURL + 'parte/' + id, this.httpOptions)
+    .pipe(retry(1), catchError(this.errorHandler));
+  }
+
+  getTiposParte(): Observable<TipoParte>{
+    return this.http.get<TipoParte>(this.apiURL + 'tiposParte', this.httpOptions)
+    .pipe(retry(1), catchError(this.errorHandler));
+  }
+
+  
 
   errorHandler(error){
     let errorMessage = '';
