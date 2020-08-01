@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiLlanteraService } from 'src/app/services/api-llantera.service';
 import { MatDialog, MatDialogRef } from '@angular/material';
+import { Employee } from 'src/app/models/employee';
 
 @Component({
   selector: 'app-employee-modal',
@@ -32,7 +33,7 @@ export class EmployeeModalComponent implements OnInit {
 
   insertEmployee() {
     if (this.firstStep.valid) {
-      this.apiService.insertEmployee(this.firstStep.value).subscribe(
+      this.apiService.insertRow<Employee>(this.firstStep.value, 'empleado').subscribe(
         (data: {}) => {
           this.dialogRef.close(true);
         }

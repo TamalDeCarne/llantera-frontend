@@ -24,7 +24,7 @@ export class ClientsComponent implements OnInit {
   }
 
   loadClients() {
-    return this.clientsService.getClients().subscribe(
+    return this.clientsService.getRows<Client>('clientes').subscribe(
       (data: {}) => {
         this.clientList = data;
         this.dataSource = new MatTableDataSource<Client>(this.clientList);
@@ -52,7 +52,7 @@ export class ClientsComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(dialogResult => {
       if (dialogResult) {
-        this.clientsService.deleteClient(client.id).subscribe((data: {}) => {
+        this.clientsService.deleteRow<Client>(client.id, 'cliente').subscribe((data: {}) => {
           this.loadClients();
         });
 

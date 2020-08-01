@@ -28,7 +28,7 @@ export class EmployeesComponent implements OnInit {
   }
 
   loadEmployees() {
-    return this.employeesService.getEmployees().subscribe(
+    return this.employeesService.getRows<Employee>('empleados').subscribe(
       (data: {}) => {
         this.employeeList = data;
         this.dataSource = new MatTableDataSource<Employee>(this.employeeList);
@@ -56,7 +56,7 @@ export class EmployeesComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(dialogResult => {
       if (dialogResult) {
-        this.employeesService.deleteEmployee(employee.id).subscribe((data: {}) => {
+        this.employeesService.deleteRow<Employee>(employee.id,'empleado').subscribe((data: {}) => {
           this.loadEmployees();
         });
 

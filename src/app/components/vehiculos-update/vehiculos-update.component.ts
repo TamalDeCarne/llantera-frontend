@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiLlanteraService } from 'src/app/services/api-llantera.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Vehiculo } from 'src/app/models/vehiculo';
+import { Client } from 'src/app/models/client';
 
 
 //TODO Date picker validation
@@ -46,27 +47,29 @@ export class VehiculosUpdateComponent implements OnInit {
   }
 
   getVehicle() {
-    return this.apiService.getVehicle(this.vehicleId).subscribe(
+    return this.apiService.getRow<Vehiculo>(this.vehicleId, 'vehiculo').subscribe(
       (data) => {
 
         this.vehicleData = data;
         this.firstStep.patchValue({
           cliente_id: this.vehicleData.cliente_id,
           descripcion: this.vehicleData.descripcion,
-          fecha_fabricacion: this.vehicleData.fecha_fabricacion
+          fecha_fabricacion: this.vehicleData.fecha_fabricacion,
+          modelo: this.vehicleData.modelo,
+          
         });
       })
   }
 
   updateVehicle() {
-    return this.apiService.updateVehicle(this.vehicleId, this.firstStep.value).subscribe(
+    return this.apiService.updateRow<Vehiculo>(this.vehicleId, this.firstStep.value, 'vehiculo').subscribe(
       (data: {}) => {
         this.dialogRef.close(true);
       });
   }
 
   getClients() {
-    return this.apiService.getClients().subscribe(
+    return this.apiService.getRows<Client>('clientes').subscribe(
       (data: {}) =>{
         this.clients = data;
       }

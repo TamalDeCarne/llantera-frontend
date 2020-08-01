@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiLlanteraService } from 'src/app/services/api-llantera.service';
 import { MatDialog, MatDialogRef } from '@angular/material';
+import { Vehiculo } from 'src/app/models/vehiculo';
+import { Client } from 'src/app/models/client';
 //TODO Date picker validation
 @Component({
   selector: 'app-vehiculos-modal',
@@ -38,7 +40,7 @@ export class VehiculosModalComponent implements OnInit {
   insertVehicle() {
     if (this.firstStep.valid) {
       console.log(this.firstStep.value);
-      this.apiService.insertVehicle(this.firstStep.value).subscribe(
+      this.apiService.insertRow<Vehiculo>(this.firstStep.value, 'vehiculo').subscribe(
         (data: {}) => {
           this.dialogRef.close(true);
         }
@@ -47,7 +49,7 @@ export class VehiculosModalComponent implements OnInit {
   }
 
   getClients() {
-    return this.apiService.getClients().subscribe(
+    return this.apiService.getRows<Client>('clientes').subscribe(
       (data: {}) =>{
         this.clients = data;
       }

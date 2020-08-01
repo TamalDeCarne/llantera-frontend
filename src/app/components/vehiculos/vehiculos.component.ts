@@ -25,18 +25,9 @@ export class VehiculosComponent implements OnInit {
   }
 
   loadVehicles() {
-    return this.vehicleService.getVehicles().subscribe(
+    return this.vehicleService.getRows<Vehiculo>('vehiculos',).subscribe(
       (data: {}) => {
         this.vehicleList = data;
-        this.dataSource = new MatTableDataSource<Vehiculo>(this.vehicleList);
-      }
-    );
-  }
-
-  getVehicles() {
-    return this.vehicleService.getVehicle(12).subscribe(
-      (data: {}) => {
-        this.vehicleList.push(data)
         this.dataSource = new MatTableDataSource<Vehiculo>(this.vehicleList);
       }
     );
@@ -62,7 +53,7 @@ export class VehiculosComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(dialogResult => {
       if (dialogResult) {
-        this.vehicleService.deleteVehicle(vehicle.id).subscribe((data: {}) => {
+        this.vehicleService.deleteRow(vehicle.id, 'vehiculo').subscribe((data: {}) => {
           this.loadVehicles();
         });
 
@@ -82,7 +73,7 @@ export class VehiculosComponent implements OnInit {
       if (dialogResult) {
         const dialogconfig = new MatDialogConfig();
         dialogconfig.data = {
-          employeeId: vehicle.id,
+          vehicleId: vehicle.id,
         };
         const updatedialog = this.dialog.open(VehiculosUpdateComponent, dialogconfig);
         updatedialog.afterClosed().subscribe(dialogRef => {

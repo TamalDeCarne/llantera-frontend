@@ -3,6 +3,8 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { ApiLlanteraService } from 'src/app/services/api-llantera.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { User } from 'src/app/models/user';
+import { UserType } from 'src/app/models/usertype';
+import { Employee } from 'src/app/models/employee';
 
 @Component({
   selector: 'app-user-update',
@@ -51,7 +53,7 @@ export class UserUpdateComponent implements OnInit {
   }
 
   getUser() {
-    return this.apiService.getUser(this.userId).subscribe(
+    return this.apiService.getRow<User>(this.userId, 'usuario').subscribe(
       (data) => {
         this.userData = data;
         this.secondStep.patchValue({
@@ -63,7 +65,7 @@ export class UserUpdateComponent implements OnInit {
   }
 
   loadUserTypes() {
-    return this.apiService.getUserTypes().subscribe(
+    return this.apiService.getRows<UserType>('tiposUsuario').subscribe(
       (data: {}) => {
         this.userTypes = data;
       }
@@ -71,7 +73,7 @@ export class UserUpdateComponent implements OnInit {
   }
 
   loadEmployees() {
-    return this.apiService.getEmployees().subscribe(
+    return this.apiService.getRows<Employee>('empleados').subscribe(
       (data: {}) => {
         this.employees = data;
         this.employees = this.employees.filter((employee) => employee.id === this.employeeId);
@@ -80,7 +82,7 @@ export class UserUpdateComponent implements OnInit {
   }
 
   updateUser() {
-    return this.apiService.updateUser(this.userId, this.secondStep.value).subscribe(
+    return this.apiService.updateRow<User>(this.userId, this.secondStep.value, 'usuario').subscribe(
       (data: {}) => {
         this.dialogRef.close(true);
       });
