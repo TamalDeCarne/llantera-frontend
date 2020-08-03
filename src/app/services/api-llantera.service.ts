@@ -42,8 +42,8 @@ export class ApiLlanteraService {
     .pipe(retry(1), catchError(this.errorHandler));
   }
 
-  updateRow<T>(userId: number, jsonData, modelPath: string): Observable<T>{
-    return this.http.put<T>(`${this.apiURL}${modelPath}/${userId}`, jsonData, this.httpOptions)
+  updateRow<T>(id: number, jsonData, modelPath: string): Observable<T>{
+    return this.http.put<T>(`${this.apiURL}${modelPath}/${id}`, jsonData, this.httpOptions)
     .pipe(retry(1), catchError(this.errorHandler));
   }
 
