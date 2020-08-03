@@ -17,6 +17,9 @@ export class ApiLlanteraService {
   }
   constructor(private http:HttpClient) { }
 
+  //TODO 'T' es Generico.
+  //!Mandas desde el componente el Modelo y la ruta default y ya esta
+  
   getRows<T>(modelPath: string): Observable<T>{
     return this.http.get<T>(`${this.apiURL}${modelPath}`)
     .pipe(retry(1), catchError(this.errorHandler));

@@ -65,7 +65,6 @@ export class PartesComponent implements OnInit {
     })
   }
 
-  //!AUN NO TERMINADO
   updateModal(parte){
 
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
