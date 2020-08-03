@@ -39,7 +39,7 @@ export class EmployeeUpdateComponent implements OnInit {
   }
 
   getEmployee() {
-    return this.apiService.getEmployee(this.employeeId).subscribe(
+    return this.apiService.getRow<Employee>(this.employeeId, 'empleado').subscribe(
       (data) => {
 
         this.employeeData = data;
@@ -55,7 +55,7 @@ export class EmployeeUpdateComponent implements OnInit {
   }
 
   updateEmployee() {
-    return this.apiService.updateEmployee(this.employeeId, this.firstStep.value).subscribe(
+    return this.apiService.updateRow<Employee>(this.employeeId, this.firstStep.value, 'empleado').subscribe(
       (data: {}) => {
         this.dialogRef.close(true);
       });

@@ -13,6 +13,7 @@ import { GarantiasComponent } from './components/garantias/garantias.component';
 import { MotorComponent } from './components/motor/motor.component';
 import { CarroceriaComponent } from './components/carroceria/carroceria.component';
 import { PartesComponent } from './components/partes/partes.component';
+import { VehiculosComponent } from './components/vehiculos/vehiculos.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'login'},
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path: 'partes/motor', component: MotorComponent},
   {path: 'partes/carroceria', component: CarroceriaComponent},
   {path: 'partes', component: PartesComponent},
-  {path: 'garantias', component: GarantiasComponent}
+  {path: 'garantias', component: GarantiasComponent},
+  {path: 'vehicles', component: VehiculosComponent}
 ];
 
 @NgModule({

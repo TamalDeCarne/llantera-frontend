@@ -74,15 +74,18 @@ import { CarroceriaComponent } from './components/carroceria/carroceria.componen
     CarroceriaComponent
   ],
   entryComponents: [
-    UserModalComponent, 
-    UserUpdateComponent, 
-    ConfirmDialogComponent, 
-    EmployeeUpdateComponent, 
-    EmployeeModalComponent, 
-    ClientModalComponent, 
+    UserModalComponent,
+    UserUpdateComponent,
+    ConfirmDialogComponent,
+    EmployeeUpdateComponent,
+    EmployeeModalComponent,
+    ClientModalComponent,
     ClientUpdateComponent,
     PartesModalComponent,
-    PartesUpdateComponent
+    PartesUpdateComponent,
+    GarantiaUpdateComponent,
+    VehiculosModalComponent,
+    VehiculosUpdateComponent,
   ],
   imports: [
     BrowserModule,

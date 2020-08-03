@@ -38,7 +38,7 @@ export class ClientUpdateComponent implements OnInit {
   }
 
   getClient() {
-    return this.apiService.getClient(this.clientId).subscribe(
+    return this.apiService.getRow<Client>(this.clientId, 'cliente').subscribe(
       (data) => {
 
         this.clientData = data;
@@ -52,7 +52,7 @@ export class ClientUpdateComponent implements OnInit {
   }
 
   updateClient() {
-    return this.apiService.updateClient(this.clientId, this.firstStep.value).subscribe(
+    return this.apiService.updateRow<Client>(this.clientId, this.firstStep.value, 'cliente').subscribe(
       (data: {}) => {
         this.dialogRef.close(true);
       });

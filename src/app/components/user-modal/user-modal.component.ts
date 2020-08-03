@@ -4,6 +4,8 @@ import { ApiLlanteraService } from 'src/app/services/api-llantera.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { User } from 'src/app/models/user';
 import { Injectable } from '@angular/core';
+import { UserType } from 'src/app/models/usertype';
+import { Employee } from 'src/app/models/employee';
 
 @Component({
   selector: 'app-user-modal',
@@ -43,7 +45,7 @@ export class UserModalComponent implements OnInit{
   }
 
   loadUserTypes() {
-    return this.apiService.getUserTypes().subscribe(
+    return this.apiService.getRows<UserType>('tiposUsuario').subscribe(
       (data: {}) =>{
         this.userTypes = data;
       }
@@ -51,7 +53,7 @@ export class UserModalComponent implements OnInit{
   }
 
   loadEmployees() {
-    return this.apiService.getEmployees().subscribe(
+    return this.apiService.getRows<Employee>('empleados').subscribe(
       (data: {}) =>{
         this.employees = data;
         this.employees = this.employees.filter((employee) => employee.usuario === null );
@@ -61,7 +63,7 @@ export class UserModalComponent implements OnInit{
 
   insertEmployee(){
     if(this.firstStep.valid){
-      this.apiService.insertEmployee(this.firstStep.value).subscribe(
+      this.apiService.insertRow<Employee>(this.firstStep.value,'empleado').subscribe(
         (data: {}) =>{
           this.loadUserTypes();
           this.loadEmployees();
@@ -72,7 +74,7 @@ export class UserModalComponent implements OnInit{
 
   insertUser() {
     if(this.secondStep.valid){
-      this.apiService.insertUser(this.secondStep.value).subscribe(
+      this.apiService.insertRow<User>(this.secondStep.value, 'usuario').subscribe(
         (data: {}) => {
           this.dialogRef.close(true);
         }

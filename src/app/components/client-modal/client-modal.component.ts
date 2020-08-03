@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiLlanteraService } from 'src/app/services/api-llantera.service';
 import { MatDialog, MatDialogRef } from '@angular/material';
+import { Client } from 'src/app/models/client';
 
 @Component({
   selector: 'app-client-modal',
@@ -30,7 +31,7 @@ export class ClientModalComponent implements OnInit {
 
   insertClient() {
     if (this.firstStep.valid) {
-      this.apiService.insertClient(this.firstStep.value).subscribe(
+      this.apiService.insertRow<Client>(this.firstStep.value, 'cliente').subscribe(
         (data: {}) => {
           this.dialogRef.close(true);
         }
