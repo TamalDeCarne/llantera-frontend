@@ -16,7 +16,27 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     align-self: center;
     margin-top: 1.25em;
     margin-bottom: 1.25em;
+    text-align: center;
     width: 90%;
+  }
+  
+  th.mat-header-cell {
+    text-align: center !important;
+    font-size: 1.25em;
+    color: white;
+    background-color: rgb(103, 58, 183);
+  }
+
+  tr.mat-row {
+    margin: 5px 0px !important;
+  }
+
+  tr.mat-row:nth-child(2n) {
+    background-color: rgb(221, 221, 221);
+  }
+
+  tr.mat-row:nth-child(2n + 1) {
+    background-color: rgb(255, 255, 255);
   }
   
   .container-table {
@@ -24,3 +44,33 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     justify-content: center;
   }
   
+
+  div.title-pill {
+    display: flex;
+    align-items: center;
+    background-color: rgb(103, 58, 183);
+    border-radius: 20px;
+    height: 2.5em;
+    margin-left: 3em;
+    width: 100%;
+}
+
+div.title-pill h2{
+    padding: 0.25em 0.25em 0.25em 0.35em;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    width: 75%;
+}
+
+div.title-pill button{
+    justify-content: center !important;
+    text-align: center;
+    color:  rgb(103, 58, 183);
+    background-color: white;
+    border-radius: 0% 20px 20px 0%;
+    border: solid 2px rgb(103, 58, 183);
+    margin-right: -6px;
+    height: inherit;
+    width: 25%;
+}

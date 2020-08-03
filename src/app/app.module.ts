@@ -27,9 +27,6 @@ import { GarantiasComponent } from './components/garantias/garantias.component';
 import { ClientsComponent } from './components/clients/clients.component';
 import { ClientModalComponent } from './components/client-modal/client-modal.component';
 import { ClientUpdateComponent } from './components/client-update/client-update.component';
-import { TipoParteComponent } from './components/tipo-parte/tipo-parte.component';
-import { TipoParteModalComponent } from './components/tipo-parte-modal/tipo-parte-modal.component';
-import { TipoParteUpdateComponent } from './components/tipo-parte-update/tipo-parte-update.component';
 import { VehiculosComponent } from './components/vehiculos/vehiculos.component';
 import { VehiculosModalComponent } from './components/vehiculos-modal/vehiculos-modal.component';
 import { VehiculosUpdateComponent } from './components/vehiculos-update/vehiculos-update.component';
@@ -61,9 +58,6 @@ import { CarroceriaComponent } from './components/carroceria/carroceria.componen
     ClientModalComponent,
     ClientUpdateComponent,
     GarantiasComponent,
-    TipoParteComponent,
-    TipoParteModalComponent,
-    TipoParteUpdateComponent,
     VehiculosComponent,
     VehiculosModalComponent,
     VehiculosUpdateComponent,
