@@ -26,7 +26,7 @@ export class PartesComponent implements OnInit {
   }
 
   loadParts() {
-    return this.api.getPartes().subscribe(
+    return this.api.getRows<Parte>('partes').subscribe(
       (data: {}) => {
         this.partsList = data;
         this.dataSource = new MatTableDataSource<Parte>(this.partsList);
@@ -46,7 +46,7 @@ export class PartesComponent implements OnInit {
 
   }
 
-  
+
 //?FALTA TEST
   deleteParte(parte){
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
@@ -57,7 +57,7 @@ export class PartesComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(dialogResult => {
       if(dialogResult){
-        return this.api.deleteParte(parte.id).subscribe((data: {}) => {
+        return this.api.deleteRow<Parte>(parte.id, 'parte').subscribe((data: {}) => {
         this.deleteParte(parte.id);
         this.loadParts();
         });

@@ -10,7 +10,7 @@ import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.compone
   styleUrls: ['./garantias.component.css']
 })
 export class GarantiasComponent implements OnInit {
-  
+
   garantias: any = [];
   displayedColumns : string[] = ['fecha_inicio', 'fecha_vencimiento','acciones'];
   dataSource;
@@ -22,16 +22,16 @@ export class GarantiasComponent implements OnInit {
   }
 
   loadGarantias() {
-    return this.api.getGarantias().subscribe(
+    return this.api.getRows<Garantia>('garantias').subscribe(
       (data: {}) => {
         this.garantias = data;
         this.dataSource = new MatTableDataSource<Garantia>(this.garantias);
       }
     );
   }
-  
+
   deleteGarantia(id){
-    return this.api.deleteGarantia(id).subscribe((data: {}) => { console.log(data); });
+    return this.api.deleteRow<Garantia>(id, 'garantia').subscribe((data: {}) => { console.log(data); });
   }
 
 }

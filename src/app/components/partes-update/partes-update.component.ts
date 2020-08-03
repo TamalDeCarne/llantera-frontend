@@ -1,8 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MatDialog, MAT_DIALOG_DATA } from '@angular/material';
-import { PartesComponent } from '../partes/partes.component';
 import { ApiLlanteraService } from 'src/app/services/api-llantera.service';
+import { Parte } from 'src/app/models/parte';
+import { TipoParte } from 'src/app/models/tipoparte';
 
 @Component({
   selector: 'app-partes-update',
@@ -35,7 +36,7 @@ export class PartesUpdateComponent implements OnInit {
   }
 
   getParte() {
-    return this.api.getParte(this.parteId).subscribe(
+    return this.api.getRow<Parte>(this.parteId, 'parte').subscribe(
       (data) => {
         this.parte = data;
         this.secondStep.patchValue({
@@ -47,9 +48,9 @@ export class PartesUpdateComponent implements OnInit {
       }
     )
   }
-  
+
   loadTiposParte(){
-    return this.api.getTiposParte().subscribe(
+    return this.api.getRows<TipoParte>('tiposParte').subscribe(
       (data: {}) =>{
         this.tiposParte = data;
       }
@@ -57,7 +58,7 @@ export class PartesUpdateComponent implements OnInit {
   }
 
   updateParte(){
-    return this.api.updateParte(this.parteId, this.secondStep.value).subscribe(
+    return this.api.updateRow<Parte>(this.parteId, this.secondStep.value, 'parte').subscribe(
       (data: {}) => {
         this.dialogRef.close(true);
       }

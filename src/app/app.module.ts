@@ -83,7 +83,6 @@ import { CarroceriaComponent } from './components/carroceria/carroceria.componen
     ClientUpdateComponent,
     PartesModalComponent,
     PartesUpdateComponent,
-    GarantiaUpdateComponent,
     VehiculosModalComponent,
     VehiculosUpdateComponent,
   ],
