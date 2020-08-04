@@ -16,19 +16,19 @@
               <th mat-header-cell *matHeaderCellDef>Nombre</th>
               <td mat-cell *matCellDef="let carroceria">{{ carroceria.nombre_parte }}</td>
             </ng-container>
-  
+
             <ng-container matColumnDef="descripcion_parte">
               <th mat-header-cell *matHeaderCellDef>Descripcion</th>
               <td mat-cell *matCellDef="let carroceria">{{ carroceria.descripcion_parte }}</td>
             </ng-container>
-  
+
             <ng-container matColumnDef="precio">
               <th mat-header-cell *matHeaderCellDef>Precio</th>
               <td mat-cell *matCellDef="let carroceria">
-                {{ carroceria.precio }}
+                {{ carroceria.precio | currency }}
               </td>
             </ng-container>
-  
+
             <ng-container matColumnDef="acciones">
               <th mat-header-cell *matHeaderCellDef>Acciones</th>
               <td mat-cell *matCellDef="let carroceria">
@@ -42,13 +42,13 @@
                 <button
                   mat-icon-button
                   style="justify-content: right;"
-                  (click)="deletePart(carroceria)"
+                  (click)="deleteParte(carroceria)"
                 >
                   <mat-icon>remove_circle_outline</mat-icon>
                 </button>
               </td>
             </ng-container>
-  
+
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
           </table>

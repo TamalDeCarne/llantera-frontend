@@ -1,6 +1,6 @@
 import { ReparacionDetalle } from './reparaciondetalles';
 import { TipoParte } from './tipoparte';
-import { Inventario } from './inventario';
+import { Stock } from './inventario';
 
 export class Parte {
     id: number;
@@ -9,5 +9,5 @@ export class Parte {
     descripcion_parte: string;
     precio: number;
     reparacion_detalle: ReparacionDetalle;
-    inventario: Inventario;
+    inventario: Stock;
 }
