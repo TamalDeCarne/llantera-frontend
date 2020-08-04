@@ -35,6 +35,9 @@ import { PartesModalComponent } from './components/partes-modal/partes-modal.com
 import { PartesUpdateComponent } from './components/partes-update/partes-update.component';
 import { MotorComponent } from './components/motor/motor.component';
 import { CarroceriaComponent } from './components/carroceria/carroceria.component';
+import { StockComponent } from './components/stock/stock.component';
+import { StockUpdateComponent } from './components/stock-update/stock-update.component';
+import { StockModalComponent } from './components/stock-modal/stock-modal.component';
 
 
 
@@ -65,7 +68,10 @@ import { CarroceriaComponent } from './components/carroceria/carroceria.componen
     PartesModalComponent,
     PartesUpdateComponent,
     MotorComponent,
-    CarroceriaComponent
+    CarroceriaComponent,
+    StockComponent,
+    StockUpdateComponent,
+    StockModalComponent
   ],
   entryComponents: [
     UserModalComponent,
@@ -79,6 +85,8 @@ import { CarroceriaComponent } from './components/carroceria/carroceria.componen
     PartesUpdateComponent,
     VehiculosModalComponent,
     VehiculosUpdateComponent,
+    StockUpdateComponent,
+    StockModalComponent
   ],
   imports: [
     BrowserModule,

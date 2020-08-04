@@ -14,9 +14,11 @@ import { MotorComponent } from './components/motor/motor.component';
 import { CarroceriaComponent } from './components/carroceria/carroceria.component';
 import { PartesComponent } from './components/partes/partes.component';
 import { VehiculosComponent } from './components/vehiculos/vehiculos.component';
+import { StockComponent } from './components/stock/stock.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'login'},
+  {path:'stocks', component: StockComponent},
   {path: 'login', component: LogInComponent },
   {path: 'register', component: RegisterComponent },
   {path: 'post', component: ShowPostsComponent },

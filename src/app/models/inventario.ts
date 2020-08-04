@@ -1,8 +1,7 @@
 import { Parte } from './parte';
 
-export class Inventario {
+export class Stock {
     id: number;
-    parte_id: Parte;
     cantidad: number;
     parte: Parte;
 }

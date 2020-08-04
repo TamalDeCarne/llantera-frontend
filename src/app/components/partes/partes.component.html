@@ -23,24 +23,24 @@
               <th mat-header-cell *matHeaderCellDef>Nombre de Parte</th>
               <td mat-cell *matCellDef="let parte">{{ parte.nombre_parte }}</td>
             </ng-container>
-  
+
             <ng-container matColumnDef="descripcion_parte">
               <th mat-header-cell *matHeaderCellDef>Descripcion</th>
               <td mat-cell *matCellDef="let parte">{{ parte.descripcion_parte }}</td>
             </ng-container>
-  
+
             <ng-container matColumnDef="precio">
               <th mat-header-cell *matHeaderCellDef>Precio</th>
               <td mat-cell *matCellDef="let parte">
-                {{ parte.precio }}
+                {{ parte.precio |currency }}
               </td>
             </ng-container>
-  
+
             <ng-container matColumnDef="denominacion_parte">
               <th mat-header-cell *matHeaderCellDef>Tipo de Parte</th>
               <td mat-cell *matCellDef="let parte">{{ parte.tipo_parte.denominacion_parte }}</td>
             </ng-container>
-  
+
             <ng-container matColumnDef="acciones">
               <th mat-header-cell *matHeaderCellDef>Acciones</th>
               <td mat-cell *matCellDef="let parte">
@@ -54,13 +54,13 @@
                 <button
                   mat-icon-button
                   style="justify-content: right;"
-                  (click)="deletePart(parte)"
+                  (click)="deleteParte(parte)"
                 >
-                  <mat-icon>person_remove</mat-icon>
+                  <mat-icon>remove_circle_outline</mat-icon>
                 </button>
               </td>
             </ng-container>
-  
+
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
           </table>
