@@ -19,11 +19,11 @@
   </mat-toolbar>
 </app-header>-->
 
-<mat-sidenav-container class="example-container">
-  <mat-sidenav #sidenav opened mode="side" [fixedInViewPort]="fixed" color="primary" position="start" class="mat-drawer-open" style="visibility: visible;">
+<mat-sidenav-container class="example-container" (window:resize)="onResize($event)" >
+  <mat-sidenav #sidenav [opened]="opened" [mode]="mode.value" [fixedInViewPort]="fixed" color="primary"
+   position="start" class="mat-drawer-open" style="visibility: visible;" >
     <div>
       <mat-toolbar color="primary" class="app-header">
-
         <div>
           <a href="#" class="title">Dashboard</a>
         </div>
@@ -59,7 +59,8 @@
 
   <mat-sidenav-content>
       <mat-toolbar color="primary" style="position:sticky;" class="app-header">
-        <div>
+        <div class="menu-title">
+          <button class="menu-button" mat-icon-button (click)="sidenav.toggle()" *ngIf="isWidth(sidenav)"><mat-icon>menu</mat-icon></button>
           <a href="#" class="title">Llantera</a>
         </div>
         <span class="nav-tool-items">

@@ -42,5 +42,18 @@ mat-sidenav {
 }
 
 
+@media (max-width: 900px){
+    mat-icon-button {
+      visibility: hidden !important;
+    }
+  }
+  
+  @media (max-width: 500px){
+    mat-icon-button {
+      visibility: visible;
+    }
+  }
+
+
 
 

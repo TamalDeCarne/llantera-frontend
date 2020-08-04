@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -78,7 +77,7 @@ import { CarroceriaComponent } from './components/carroceria/carroceria.componen
     PartesModalComponent,
     PartesUpdateComponent,
     VehiculosModalComponent,
-    VehiculosUpdateComponent,
+    VehiculosUpdateComponent
   ],
   imports: [
     BrowserModule,

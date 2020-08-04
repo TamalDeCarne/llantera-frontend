@@ -5,6 +5,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .card {
     justify-content: center;
+    box-shadow: none;
   }
   
   .floating-btn {
@@ -73,4 +74,37 @@ div.title-pill button{
     margin-right: -6px;
     height: inherit;
     width: 25%;
+}
+
+mat-sidenav-content {
+  background-color: white;
+}
+
+mat-card.card.mat-card {
+  box-shadow: none;
+}
+
+mat-expansion-panel.mat-expansion-panel.ng-tns-c5-1.ng-star-inserted,
+mat-expansion-panel.mat-expansion-panel.ng-tns-c5-3.ng-star-inserted{
+  box-shadow: none;
+}
+
+mat-expansion-panel.mat-expansion-panel.ng-tns-c5-1.ng-star-inserted.mat-expanded,
+mat-expansion-panel.mat-expansion-panel.ng-tns-c5-3.ng-star-inserted.mat-expanded
+{
+  box-shadow: none;
+}
+
+
+
+@media (min-width: 900px){
+  div.menu-title button.menu-button {
+    visibility: hidden;
+  }
+}
+
+@media (max-width: 900px){
+  div.menu-title button.menu-button {
+    visibility: visible;
+  }
 }
