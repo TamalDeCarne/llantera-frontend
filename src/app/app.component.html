@@ -61,7 +61,7 @@
   <mat-sidenav-content>
       <mat-toolbar color="primary" style="position:sticky;" class="app-header">
         <div class="menu-title">
-          <button class="menu-button" mat-icon-button (click)="sidenav.toggle()" *ngIf="isWidth(sidenav)"><mat-icon>menu</mat-icon></button>
+          <button class="menu-button" mat-icon-button (click)="sidenav.toggle()" *ngIf="getSidenav(sidenav)"><mat-icon>menu</mat-icon></button>
           <a href="#" class="title">Llantera</a>
         </div>
         <span class="nav-tool-items">

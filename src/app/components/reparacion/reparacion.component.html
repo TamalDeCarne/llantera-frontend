@@ -1,0 +1,83 @@
+<div class="container">
+    <mat-card class="card">
+      <mat-card-header>
+        <mat-card-title>
+          <div class="title-pill">
+            <h2>
+              Usuarios
+            </h2>
+            <button
+              mat-icon-button
+              style="justify-content: right;"
+              (click)="openModal()">
+              <mat-icon>person_add</mat-icon>
+            </button>
+          </div>
+          </mat-card-title
+        >
+      </mat-card-header>
+      <mat-card-content>
+        <div class="container-table">
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <ng-container matColumnDef="nombre_usuario">
+              <th mat-header-cell *matHeaderCellDef>Nombre de Usuario</th>
+              <td mat-cell *matCellDef="let repar">{{ repar.usuario.nombre_usuario }}</td>
+            </ng-container>
+  
+            <ng-container matColumnDef="nombre_cliente">
+              <th mat-header-cell *matHeaderCellDef>Nombre de Cliente</th>
+              <td mat-cell *matCellDef="let repar">{{ repar.cliente.apellidos }}</td>
+            </ng-container>
+  
+            <ng-container matColumnDef="garantia">
+              <th mat-header-cell *matHeaderCellDef>Garantia</th>
+              <td mat-cell *matCellDef="let repar">
+                {{ repar.garantia.fecha_inicio | date: "MM/dd/yy" }}
+              </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="total">
+              <th mat-header-cell *matHeaderCellDef>Total</th>
+              <td mat-cell *matCellDef="let repar">{{ repar.total }}</td>
+            </ng-container>
+  
+            <ng-container matColumnDef="fecha_realizacion">
+              <th mat-header-cell *matHeaderCellDef>Fecha de Realizada</th>
+              <td mat-cell *matCellDef="let repar">
+                {{ repar.fecha_realizacion | date: "MM/dd/yy" }}
+              </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="reparaciones_detalles">
+                <th mat-header-cell *matHeaderCellDef>Detalles</th>
+                <td mat-cell *matCellDef="let repar">
+                  {{ repar.empleado.direccion }}
+                </td>
+              </ng-container>
+  
+            <ng-container matColumnDef="acciones">
+              <th mat-header-cell *matHeaderCellDef>Acciones</th>
+              <td mat-cell *matCellDef="let repar">
+                <button
+                  mat-icon-button
+                  style="justify-content: right;"
+                  (click)="updateModal(repar)">
+                  <mat-icon>edit</mat-icon>
+                </button>
+                <button
+                  mat-icon-button
+                  style="justify-content: right;"
+                  (click)="deleteUser(repar)"
+                >
+                  <mat-icon>person_remove</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+  
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>

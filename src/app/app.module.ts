@@ -37,6 +37,9 @@ import { CarroceriaComponent } from './components/carroceria/carroceria.componen
 import { StockComponent } from './components/stock/stock.component';
 import { StockUpdateComponent } from './components/stock-update/stock-update.component';
 import { StockModalComponent } from './components/stock-modal/stock-modal.component';
+import { ReparacionComponent } from './components/reparacion/reparacion.component';
+import { ReparacionModalComponent } from './components/reparacion-modal/reparacion-modal.component';
+import { ReparacionUpdateComponent } from './components/reparacion-update/reparacion-update.component';
 
 
 
@@ -70,7 +73,10 @@ import { StockModalComponent } from './components/stock-modal/stock-modal.compon
     CarroceriaComponent,
     StockComponent,
     StockUpdateComponent,
-    StockModalComponent
+    StockModalComponent,
+    ReparacionComponent,
+    ReparacionModalComponent,
+    ReparacionUpdateComponent
   ],
   entryComponents: [
     UserModalComponent,

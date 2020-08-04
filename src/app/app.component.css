@@ -37,20 +37,17 @@ mat-sidenav-container {
     height: 100%;
 }
 
-mat-sidenav {
-    width: 15%;
-}
-
-
 @media (max-width: 900px){
-    mat-icon-button {
-      visibility: hidden !important;
+    mat-sidenav {
+      width: 25%;
     }
+
+
   }
   
-  @media (max-width: 500px){
-    mat-icon-button {
-      visibility: visible;
+  @media (min-width: 900px){
+    mat-sidenav {
+      width: 12%;
     }
   }
 

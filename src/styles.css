@@ -107,4 +107,9 @@ mat-expansion-panel.mat-expansion-panel.ng-tns-c5-3.ng-star-inserted.mat-expande
   div.menu-title button.menu-button {
     visibility: visible;
   }
+
+    div.title-pill {
+      margin-left: 1em;
+  }
 }
+

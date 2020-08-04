@@ -16,15 +16,11 @@ export class AppComponent {
   private sidenav : MatSidenav;
   opened : boolean = true;
 
-  getSidenav(side){
-    this.sidenav = side;
-  }
 
   getProperties() {
     if(this.width < 900){
       this.mode = new FormControl('push');
       this.opened = false;
-      console.log("entre pero no hice nada");
     }
     else {
       this.mode = new FormControl('side');
@@ -39,9 +35,9 @@ export class AppComponent {
     this.getProperties();
   }
 
-  isWidth(side){
+  getSidenav(side){
     if(this.width){
-      this.getSidenav(side);
+      this.sidenav = side;
       return true;
     }
   }
