@@ -10,5 +10,5 @@ export class Reparacion {
     garantia_id: Garantia;
     total: number;
     fecha_realizacion: Date;
-    reparaciones_detalles: ReparacionDetalle;
+    reparaciones_detalles: ReparacionDetalle[];
 }

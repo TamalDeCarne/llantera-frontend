@@ -5,6 +5,6 @@ import { Parte } from './parte';
 export class ReparacionDetalle {
     id: number;
     parte_id : Parte;
-    reparacion_id: Reparacion;
+    reparacion_id: number;
     cantidad: number;
 }
