@@ -1,3 +1,5 @@
+import { Vehiculo } from './vehiculo';
+
 export class Client {
   id: number;
   nombre: string;
@@ -5,4 +7,5 @@ export class Client {
   email: string;
   fecha_registro: Date;
   telefono: string;
+  vehiculo: Vehiculo;
 }

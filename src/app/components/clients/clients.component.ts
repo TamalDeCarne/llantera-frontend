@@ -13,7 +13,7 @@ import { ClientUpdateComponent } from '../client-update/client-update.component'
 })
 export class ClientsComponent implements OnInit {
   clientList: any = [];
-  displayedColumns: string[] = ['nombre', 'apellidos', 'email', 'fecha_registro', 'telefono', 'acciones',];
+  displayedColumns: string[] = ['nombre', 'apellidos', 'email', 'fecha_registro', 'telefono', 'vehiculo' ,'acciones'];
   dataSource;
 
 
@@ -27,6 +27,7 @@ export class ClientsComponent implements OnInit {
     return this.clientsService.getRows<Client>('clientes').subscribe(
       (data: {}) => {
         this.clientList = data;
+        this.clientList = this.clientList.filter((client) => client.vehiculo !== null);
         this.dataSource = new MatTableDataSource<Client>(this.clientList);
       }
     );
