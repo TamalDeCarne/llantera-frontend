@@ -40,6 +40,7 @@ import { StockModalComponent } from './components/stock-modal/stock-modal.compon
 import { ReparacionComponent } from './components/reparacion/reparacion.component';
 import { ReparacionModalComponent } from './components/reparacion-modal/reparacion-modal.component';
 import { ReparacionUpdateComponent } from './components/reparacion-update/reparacion-update.component';
+import { ReparacionDetallesComponent } from './components/reparacion-detalles/reparacion-detalles.component';
 
 
 
@@ -76,7 +77,8 @@ import { ReparacionUpdateComponent } from './components/reparacion-update/repara
     StockModalComponent,
     ReparacionComponent,
     ReparacionModalComponent,
-    ReparacionUpdateComponent
+    ReparacionUpdateComponent,
+    ReparacionDetallesComponent
   ],
   entryComponents: [
     UserModalComponent,
@@ -91,7 +93,8 @@ import { ReparacionUpdateComponent } from './components/reparacion-update/repara
     VehiculosModalComponent,
     VehiculosUpdateComponent,
     StockUpdateComponent,
-    StockModalComponent
+    StockModalComponent,
+    ReparacionModalComponent
   ],
   imports: [
     BrowserModule,
