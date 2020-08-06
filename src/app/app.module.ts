@@ -94,7 +94,8 @@ import { ReparacionDetallesComponent } from './components/reparacion-detalles/re
     VehiculosUpdateComponent,
     StockUpdateComponent,
     StockModalComponent,
-    ReparacionModalComponent
+    ReparacionModalComponent,
+    ReparacionDetallesComponent
   ],
   imports: [
     BrowserModule,

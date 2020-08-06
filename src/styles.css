@@ -22,6 +22,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   }
   
   th.mat-header-cell {
+    padding: 20px !important;
     text-align: center !important;
     font-size: 1.25em;
     color: white;
@@ -45,6 +46,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     justify-content: center;
   }
   
+  .container-table-detalle{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+  }
+
 
   div.title-pill {
     display: flex;
@@ -95,7 +103,17 @@ mat-expansion-panel.mat-expansion-panel.ng-tns-c5-3.ng-star-inserted.mat-expande
   box-shadow: none;
 }
 
+.dialog-recreate{
+  display: block;
+  justify-content: center;
+  background-color: white;
+  padding: 24px;
+  border-radius: 4px;
+}
 
+.mat-dialog-container {
+  display: block;
+}
 
 @media (min-width: 900px){
   div.menu-title button.menu-button {

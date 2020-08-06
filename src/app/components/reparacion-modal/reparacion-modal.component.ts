@@ -30,7 +30,7 @@ export class ReparacionModalComponent implements OnInit {
   clientes: any = [];
   partes: any = [];
   displayedColumns: string[] = ["nombre_parte", "cantidad", "acciones"];
-  detallesDS = new MatTableDataSource<DetallesReparacion>();
+  detallesDS;
   constructor(
     private _formBuilder: FormBuilder,
     private api: ApiLlanteraService,
@@ -118,14 +118,16 @@ export class ReparacionModalComponent implements OnInit {
     if (detalleIsValid) {
       const detalle = this.secondStep.value;
       this.detallesList.push(detalle);
+      this.refreshTable();
     }
   }
 
   deleteDetalle() {
     this.detallesList.pop();
+    this.refreshTable();
   }
 
   refreshTable() {
-    this.detallesDS = this.detallesList;
+    this.detallesDS  = new MatTableDataSource<DetallesReparacion>(this.detallesList);
   }
 }

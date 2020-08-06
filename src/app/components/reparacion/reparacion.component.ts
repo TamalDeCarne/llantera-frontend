@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiLlanteraService } from 'src/app/services/api-llantera.service';
-import { MatDialog, MatTableDataSource } from '@angular/material';
+import { MatDialog, MatTableDataSource, MatDialogConfig } from '@angular/material';
 import { Reparacion } from 'src/app/models/reparacion';
 import { ReparacionModalComponent } from '../reparacion-modal/reparacion-modal.component';
+import { ReparacionDetallesComponent } from '../reparacion-detalles/reparacion-detalles.component';
 
 @Component({
   selector: 'app-reparacion',
@@ -51,6 +52,18 @@ export class ReparacionComponent implements OnInit {
         this.loadReparaciones();
       }
     });
+
+  }
+
+  verDetalles(rep) {
+    console.log(rep);
+    const dialogconfig = new MatDialogConfig();
+          dialogconfig.data = {
+            reparacionId: rep.id,
+          }
+    const dialogRef1 = this.dialog.open(ReparacionDetallesComponent, dialogconfig);
+    
+    
 
   }
 
