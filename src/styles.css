@@ -6,7 +6,18 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .card {
     justify-content: center;
     box-shadow: none;
+    background-color: transparent;
   }
+
+  
+.mat-list-item {
+  color: white !important;
+}
+
+
+.mat-expansion-indicator::after, .mat-expansion-panel-header-description{
+  color: white;
+}
   
   .floating-btn {
     float: right;
@@ -85,7 +96,7 @@ div.title-pill button{
 }
 
 mat-sidenav-content {
-  background-color: white;
+  background-color: hsla(238, 40%, 85%, 0.6);
 }
 
 mat-card.card.mat-card {
@@ -95,12 +106,14 @@ mat-card.card.mat-card {
 mat-expansion-panel.mat-expansion-panel.ng-tns-c5-1.ng-star-inserted,
 mat-expansion-panel.mat-expansion-panel.ng-tns-c5-3.ng-star-inserted{
   box-shadow: none;
+  background-color: transparent;
 }
 
 mat-expansion-panel.mat-expansion-panel.ng-tns-c5-1.ng-star-inserted.mat-expanded,
 mat-expansion-panel.mat-expansion-panel.ng-tns-c5-3.ng-star-inserted.mat-expanded
 {
   box-shadow: none;
+  background-color: transparent;
 }
 
 .dialog-recreate{
@@ -114,6 +127,7 @@ mat-expansion-panel.mat-expansion-panel.ng-tns-c5-3.ng-star-inserted.mat-expande
 .mat-dialog-container {
   display: block;
 }
+
 
 @media (min-width: 900px){
   div.menu-title button.menu-button {
@@ -130,4 +144,5 @@ mat-expansion-panel.mat-expansion-panel.ng-tns-c5-3.ng-star-inserted.mat-expande
       margin-left: 1em;
   }
 }
+
 

@@ -21,40 +21,64 @@
 
 <mat-sidenav-container class="example-container" (window:resize)="onResize($event)" >
   <mat-sidenav #sidenav [opened]="opened" [mode]="mode.value" [fixedInViewPort]="fixed" color="primary"
-   position="start" class="mat-drawer-open" style="visibility: visible;" >
+   position="start" class="mat-drawer-open background-mamalon" style="visibility: visible;" >
     <div>
-      <mat-toolbar color="primary" class="app-header">
+      <mat-toolbar color="primary" class="app-header" style="justify-content: center;">
         <div>
-          <a href="#" class="title">Dashboard</a>
+          <a href="#" class="title" >Dashboard</a>
         </div>
       </mat-toolbar>
         <mat-nav-list>
-          <a mat-list-item routerLink="stocks" routerLinkActive="active" >Inventario</a>
-            <a mat-list-item routerLink="users" routerLinkActive="active" >Usuarios</a>
-            <a mat-list-item routerLink="employees" routerLinkActive="active">Empleados</a>
-            <a  mat-list-item routerLink="clients" routerLinkActive="active" >Clientes</a>
-            <a  mat-list-item routerLink="vehicles" routerLinkActive="active" >Vehiculos</a>
+          <a mat-list-item routerLink="stocks" routerLinkActive="active">
+            <mat-icon style="vertical-align: middle;">list_alt</mat-icon>
+            Inventario</a>
+            <a mat-list-item routerLink="users" routerLinkActive="active" >
+              <mat-icon style="vertical-align: middle;">account_box</mat-icon>
+            Usuarios</a>
+            <a mat-list-item routerLink="employees" routerLinkActive="active">
+              <mat-icon style="vertical-align: middle;">assignment_id</mat-icon>
+            Empleados</a>
+            <a  mat-list-item routerLink="clients" routerLinkActive="active" >
+              <mat-icon style="vertical-align: middle;">portrait</mat-icon>
+            Clientes</a>
+            <a  mat-list-item routerLink="vehicles" routerLinkActive="active" >
+              <mat-icon style="vertical-align: middle;">directions_car</mat-icon>
+            Vehiculos</a>
             <mat-expansion-panel>
               <mat-expansion-panel-header style="padding-left: 0;">
                 <mat-panel-title>
                   <a mat-list-item>Tipo de Usuarios</a>
                 </mat-panel-title>
               </mat-expansion-panel-header>
-              <a  mat-list-item routerLink="users/admin" routerLinkActive="active" >Administrador</a>
-              <a  mat-list-item routerLink="users/employees" routerLinkActive="active" >Usuarios</a>
+              <a  mat-list-item routerLink="users/admin" routerLinkActive="active" >
+                <mat-icon style="vertical-align: middle;">admin_panel_settings</mat-icon>
+              Administrador</a>
+              <a  mat-list-item routerLink="users/employees" routerLinkActive="active" >
+                <mat-icon style="vertical-align: middle;">verified_user</mat-icon>
+              Usuarios</a>
             </mat-expansion-panel>
-            <a  mat-list-item routerLink="partes" routerLinkActive="active" >Partes</a>
+            <a  mat-list-item routerLink="partes" routerLinkActive="active" >
+              <mat-icon style="vertical-align: middle;">construction</mat-icon>
+            Partes</a>
             <mat-expansion-panel>
               <mat-expansion-panel-header style="padding-left: 0;">
                 <mat-panel-title>
                   <a mat-list-item>Tipo de Partes</a>
                 </mat-panel-title>
               </mat-expansion-panel-header>
-              <a  mat-list-item routerLink="partes/motor" routerLinkActive="active" >Motor</a>
-              <a  mat-list-item routerLink="partes/carroceria" routerLinkActive="active" >Carroceria</a>
+              <a  mat-list-item routerLink="partes/motor" routerLinkActive="active" >
+                <mat-icon style="vertical-align: middle;">build</mat-icon>
+              Motor</a>
+              <a  mat-list-item routerLink="partes/carroceria" routerLinkActive="active" >
+                <mat-icon style="vertical-align: middle;">commute</mat-icon>
+              Carroceria</a>
             </mat-expansion-panel>
-            <a  mat-list-item routerLink="garantias" routerLinkActive="active" >Garantias</a>
-            <a  mat-list-item routerLink="reparaciones" routerLinkActive="active" >Reparaciones</a>
+            <a  mat-list-item routerLink="garantias" routerLinkActive="active" >
+              <mat-icon style="vertical-align: middle;">fact_check</mat-icon>
+            Garantias</a>
+            <a  mat-list-item routerLink="reparaciones" routerLinkActive="active" >
+              <mat-icon style="vertical-align: middle;">business_center</mat-icon>
+            Reparaciones</a>
         </mat-nav-list>
     </div>
   </mat-sidenav>
@@ -62,13 +86,18 @@
   <mat-sidenav-content>
       <mat-toolbar color="primary" style="position:sticky;" class="app-header">
         <div class="menu-title">
-          <button class="menu-button" mat-icon-button (click)="sidenav.toggle()" *ngIf="getSidenav(sidenav)"><mat-icon>menu</mat-icon></button>
-          <a href="#" class="title">Llantera</a>
+          <button class="menu-button" mat-icon-button (click)="sidenav.toggle()" *ngIf="getSidenav(sidenav)"><mat-icon style="vertical-align: middle;">menu</mat-icon></button>
+          <a href="#" class="title" style="vertical-align: middle;">Llantera "Francesco Virgolini" </a> <mat-icon style="vertical-align: middle; opacity: 0.5;">time_to_leave</mat-icon>
         </div>
-        <span class="nav-tool-items">
+        <!--<span class="nav-tool-items">
           <a mat-button routerLink="login" routerLinkActive="active">Iniciar Sesión</a>
           <a mat-button mat-raised-button routerLink="register" routerLinkActive="active">Registrarse</a>
-        </span>
+        </span>-->
+        <div>
+          <button mat-icon-button style="width: auto; height: auto;">
+            <mat-icon >face</mat-icon>
+            <a href="" style="text-decoration: none; font-size: large;"> Cerrar Sesion </a> </button>
+        </div>
       </mat-toolbar>
       <router-outlet></router-outlet>
   </mat-sidenav-content>
