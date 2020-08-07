@@ -6,6 +6,8 @@ import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.compone
 import { User } from 'src/app/models/user';
 import { UserUpdateComponent } from '../user-update/user-update.component';
 import { Employee } from 'src/app/models/employee';
+import { Reparacion } from 'src/app/models/reparacion';
+import { ViewEmployeeModalComponent } from '../view-employee-modal/view-employee-modal.component';
 
 
 @Component({
@@ -16,7 +18,7 @@ import { Employee } from 'src/app/models/employee';
 export class UsersComponent implements OnInit {
 
   userList: any = [];
-  displayedColumns : string[] = ['nombre_usuario', 'nombre', 'apellidos', 'email', 'direccion', 'fecha_contratacion', 'acciones'];
+  displayedColumns : string[] = ['nombre_usuario', 'nombre', 'apellidos', 'email', 'direccion', 'ver_empleado', 'fecha_contratacion', 'acciones'];
   dataSource;
   constructor(private usersService:ApiLlanteraService,
     public dialog: MatDialog
@@ -91,6 +93,21 @@ export class UsersComponent implements OnInit {
           });
         }
       });
+  }
+
+  
+  verEmpleado(emp) {
+    const dialogconfig = new MatDialogConfig();
+          dialogconfig.data = {
+            nombre_usuario: emp.nombre_usuario,
+            nombre: emp.empleado.nombre,
+            apellidos: emp.empleado.apellidos,
+            email: emp.empleado.emailemp
+          }
+    const dialogRef1 = this.dialog.open(ViewEmployeeModalComponent, dialogconfig);
+    
+    
+
   }
 
 }
