@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiLlanteraService } from 'src/app/services/api-llantera.service';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { TipoParte } from 'src/app/models/tipoparte';
+import { Parte } from 'src/app/models/parte';
 
 @Component({
   selector: 'app-partes-modal',
@@ -41,7 +42,7 @@ export class PartesModalComponent implements OnInit {
 
   insertParte(){
     if(this.secondStep.valid){
-      this.api.insertRow<TipoParte>(this.secondStep.value,'tipoParte').subscribe(
+      this.api.insertRow<Parte>(this.secondStep.value,'parte').subscribe(
         (data: {}) => {
           this.dialogRef.close(true);
         }
