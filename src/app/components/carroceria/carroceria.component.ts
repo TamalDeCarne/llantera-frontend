@@ -54,7 +54,6 @@ export class CarroceriaComponent implements OnInit {
     dialogRef.afterClosed().subscribe(dialogResult => {
       if(dialogResult){
         return this.api.deleteRow<Parte>(parte.id, 'parte').subscribe((data: {}) => {
-        this.deleteParte(parte.id);
         this.loadCarroceria();
         });
       }
