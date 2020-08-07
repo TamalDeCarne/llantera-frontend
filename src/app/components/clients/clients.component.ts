@@ -5,6 +5,7 @@ import { Client } from 'src/app/models/client';
 import { ClientModalComponent } from '../client-modal/client-modal.component';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { ClientUpdateComponent } from '../client-update/client-update.component';
+import { VehiculoClienteComponent } from '../vehiculo-cliente/vehiculo-cliente.component';
 
 @Component({
   selector: 'app-clients',
@@ -83,5 +84,17 @@ export class ClientsComponent implements OnInit {
         });
       }
     });
+  }
+
+  verDetalles(vehiculo) {
+
+    const dialogconfig = new MatDialogConfig();
+          dialogconfig.data = {
+            vehiculo: vehiculo,
+          }
+    const dialogRef1 = this.dialog.open(VehiculoClienteComponent, dialogconfig);
+    
+    
+
   }
 }

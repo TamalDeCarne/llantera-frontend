@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiLlanteraService } from 'src/app/services/api-llantera.service';
-import { MatDialog, MatTableDataSource, MatDialogConfig } from '@angular/material';
+import { MatDialog, MatTableDataSource } from '@angular/material';
 import { Garantia } from 'src/app/models/garantia';
-import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
+
 
 @Component({
   selector: 'app-garantias',
@@ -12,7 +12,7 @@ import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.compone
 export class GarantiasComponent implements OnInit {
 
   garantias: any = [];
-  displayedColumns : string[] = ['fecha_inicio', 'fecha_vencimiento','acciones'];
+  displayedColumns: string[] = ['fecha_inicio', 'fecha_vencimiento'];
   dataSource;
   constructor(private api: ApiLlanteraService,
     public dialog: MatDialog) { }
@@ -30,7 +30,7 @@ export class GarantiasComponent implements OnInit {
     );
   }
 
-  deleteGarantia(id){
+  deleteGarantia(id) {
     return this.api.deleteRow<Garantia>(id, 'garantia').subscribe((data: {}) => { console.log(data); });
   }
 

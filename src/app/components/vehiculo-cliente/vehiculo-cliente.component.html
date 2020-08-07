@@ -1,0 +1,23 @@
+<div mat-dialog-content> 
+    <div class="container-table-detalle">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <ng-container matColumnDef="modelo">
+            <th mat-header-cell *matHeaderCellDef>Modelo</th>
+            <td mat-cell *matCellDef="let vehiculo">{{ vehiculo.modelo }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="descripcion">
+            <th mat-header-cell *matHeaderCellDef>Descripcion</th>
+            <td mat-cell *matCellDef="let vehiculo">{{ vehiculo.descripcion }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="fecha_fabricacion">
+            <th mat-header-cell *matHeaderCellDef>Año</th>
+            <td mat-cell *matCellDef="let vehiculo">{{ vehiculo.fecha_fabricacion }}</td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+      </div>
+</div>

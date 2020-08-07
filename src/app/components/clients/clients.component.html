@@ -50,10 +50,12 @@
                 <ng-container matColumnDef="vehiculo">
                   <th mat-header-cell *matHeaderCellDef>Vehiculo</th>
                   <td mat-cell *matCellDef="let cliente" >
-
-                    Modelo: {{cliente.vehiculo.modelo }}<br>
-                    Año: {{cliente.vehiculo.fecha_fabricacion }}<br>
-                    Descripción: {{ cliente.vehiculo.descripcion}}
+                    <button
+                    mat-icon-button
+                    style="justify-content: right;"
+                    (click)="verDetalles(cliente.vehiculo)">
+                    <mat-icon>preview</mat-icon>
+                  </button>
 
                 </td>
                 </ng-container>
