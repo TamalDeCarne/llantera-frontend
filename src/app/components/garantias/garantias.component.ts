@@ -12,7 +12,7 @@ import { Garantia } from 'src/app/models/garantia';
 export class GarantiasComponent implements OnInit {
 
   garantias: any = [];
-  displayedColumns: string[] = ['fecha_inicio', 'fecha_vencimiento'];
+  displayedColumns: string[] = ['codigo', 'fecha_inicio', 'fecha_vencimiento'];
   dataSource;
   constructor(private api: ApiLlanteraService,
     public dialog: MatDialog) { }

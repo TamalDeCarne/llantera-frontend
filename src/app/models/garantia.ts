@@ -3,6 +3,7 @@ import { Reparacion } from './reparacion';
 
 export class Garantia {
     id: number;
+    codigo: string;
     fecha_inicio: Date;
     fecha_vencimiento: Date;
     reparaciones: Reparacion;
